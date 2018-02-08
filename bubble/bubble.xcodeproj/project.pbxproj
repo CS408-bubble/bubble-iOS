@@ -18,6 +18,8 @@
 		477D9E034B740E6CD11B8DE4 /* Pods_bubbleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47A4ACECEF2D0546BA3DC45 /* Pods_bubbleTests.framework */; };
 		7ACF0920CED84CAA58043DFC /* Pods_bubbleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A6848ED670E80D69AEE3A4 /* Pods_bubbleUITests.framework */; };
 		C7B14506202D013500C9832F /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B14505202D013400C9832F /* Bubble.swift */; };
+		C7B1450B202D065B00C9832F /* CreateBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7B1450A202D065B00C9832F /* CreateBubbleView.xib */; };
+		C7B1450D202D082D00C9832F /* CreateBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B1450C202D082D00C9832F /* CreateBubbleView.swift */; };
 		FC0545B8202CD3AF00A6F2CC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0545B7202CD3AF00A6F2CC /* User.swift */; };
 		FCD6F0B9202CD8BA00A658C8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD6F0B8202CD8BA00A658C8 /* AuthService.swift */; };
 		FCD6F0BB202CD8C200A658C8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD6F0BA202CD8C200A658C8 /* DataService.swift */; };
@@ -61,6 +63,8 @@
 		A27178FB51C85EBAFB7102C5 /* Pods-bubbleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bubbleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bubbleTests/Pods-bubbleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C13140F4DAB329735B86CF12 /* Pods-bubbleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bubbleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bubbleUITests/Pods-bubbleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7B14505202D013400C9832F /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
+		C7B1450A202D065B00C9832F /* CreateBubbleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateBubbleView.xib; sourceTree = "<group>"; };
+		C7B1450C202D082D00C9832F /* CreateBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBubbleView.swift; sourceTree = "<group>"; };
 		D4A6848ED670E80D69AEE3A4 /* Pods_bubbleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bubbleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47A4ACECEF2D0546BA3DC45 /* Pods_bubbleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bubbleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA229941A2DA5921E675AF5C /* Pods-bubble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bubble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bubble/Pods-bubble.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 			children = (
 				24E99797202232DE009EF2FF /* LaunchScreen.storyboard */,
 				24E99792202232DE009EF2FF /* Main.storyboard */,
+				C7B1450A202D065B00C9832F /* CreateBubbleView.xib */,
+				C7B1450C202D082D00C9832F /* CreateBubbleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7B1450B202D065B00C9832F /* CreateBubbleView.xib in Resources */,
 				24E99799202232DE009EF2FF /* LaunchScreen.storyboard in Resources */,
 				24E99796202232DE009EF2FF /* Assets.xcassets in Resources */,
 				24E99794202232DE009EF2FF /* Main.storyboard in Resources */,
@@ -547,6 +554,7 @@
 				C7B14506202D013500C9832F /* Bubble.swift in Sources */,
 				24E9978F202232DE009EF2FF /* AppDelegate.swift in Sources */,
 				FC0545B8202CD3AF00A6F2CC /* User.swift in Sources */,
+				C7B1450D202D082D00C9832F /* CreateBubbleView.swift in Sources */,
 				FCD6F0B9202CD8BA00A658C8 /* AuthService.swift in Sources */,
 				FCD6F0BB202CD8C200A658C8 /* DataService.swift in Sources */,
 			);
