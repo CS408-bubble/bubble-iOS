@@ -11,11 +11,11 @@ import Firebase
 
 class Bubble {
 
-    var text: String!
-    var owner: String!
-    var voteCount: Int!
-    var uid: String!
-    var geopoint: GeoPoint!
+    private(set) var text: String!
+    private(set) var owner: String!
+    private(set) var voteCount: Int!
+    private(set) var uid: String!
+    private(set) var geopoint: GeoPoint!
     
     init(bubbleData: [String: Any]) {
         text = bubbleData["text"] as! String
