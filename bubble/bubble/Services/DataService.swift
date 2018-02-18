@@ -74,4 +74,26 @@ class DataService {
             }
         })
     }
+    
+    // Returns all bubbles from database TODO: Only return nearest bubbles
+    func getBubbles(latitude: Double, longitude: Double, success: @escaping ([Bubble]) -> (), failure: @escaping (Error) -> ()) {
+        bubbleCollection.getDocuments { (bubblesSnapshot, error) in
+            if let error = error {
+                failure(error)
+            } else {
+                var bubbleResult: [Bubble] = []
+                guard let bubbles = bubblesSnapshot?.documents else {
+                    success(bubbleResult)
+                    return
+                }
+                
+                for bubble in bubbles {
+                    bubbleResult.append(Bubble(bubbleData: bubble.data()))
+                }
+                
+                success(bubbleResult)
+            }
+        }
+        
+    }
 }
