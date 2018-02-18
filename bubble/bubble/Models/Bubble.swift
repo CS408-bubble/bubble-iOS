@@ -20,7 +20,7 @@ class Bubble {
     init(bubbleData: [String: Any]) {
         text = bubbleData["text"] as! String
         owner = bubbleData["owner"] as! String
-        voteCount = bubbleData["voteCount"] as! String
+        voteCount = bubbleData["voteCount"] as! Int
         uid = bubbleData["voteCount"] as! String
         geopoint = bubbleData["location"] as! GeoPoint
     }

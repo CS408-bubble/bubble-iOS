@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JQI-MO-L07">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="g5x-sI-ouw">
+            <objects>
+                <viewController id="JQI-MO-L07" customClass="MapViewController" customModule="bubble" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s1S-6Z-jkt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="spU-hJ-0iY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Xn-k8-5NC">
+                                <rect key="frame" x="75" y="602" width="225" height="45"/>
+                                <color key="backgroundColor" red="0.386870467" green="0.61851435840000002" blue="0.87539392419999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="6pd-Dq-xIP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="New Bubble">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="newBubbleButtonPressed:" destination="JQI-MO-L07" eventType="touchUpInside" id="Jc6-XR-rP7"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2F4-YC-J1l" customClass="CreateBubbleView" customModule="bubble" customModuleProvider="target">
+                                <rect key="frame" x="18.5" y="243.5" width="337.5" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="JjR-m4-p6E"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="spU-hJ-0iY" firstAttribute="centerX" secondItem="nd0-NO-BI7" secondAttribute="centerX" id="06c-Vi-SM0"/>
+                            <constraint firstItem="1Xn-k8-5NC" firstAttribute="centerX" secondItem="nd0-NO-BI7" secondAttribute="centerX" id="CNI-2w-xYc"/>
+                            <constraint firstItem="2F4-YC-J1l" firstAttribute="centerY" secondItem="nd0-NO-BI7" secondAttribute="centerY" id="JBY-ii-ncu"/>
+                            <constraint firstItem="1Xn-k8-5NC" firstAttribute="bottom" secondItem="nd0-NO-BI7" secondAttribute="bottom" constant="-20" id="M4Y-6U-6wU"/>
+                            <constraint firstItem="2F4-YC-J1l" firstAttribute="width" secondItem="s1S-6Z-jkt" secondAttribute="width" multiplier="0.9" id="OYT-fs-neM"/>
+                            <constraint firstAttribute="bottom" secondItem="spU-hJ-0iY" secondAttribute="bottom" id="WNb-g6-eh8"/>
+                            <constraint firstItem="2F4-YC-J1l" firstAttribute="centerX" secondItem="nd0-NO-BI7" secondAttribute="centerX" id="XFk-IT-mjq"/>
+                            <constraint firstItem="spU-hJ-0iY" firstAttribute="top" secondItem="s1S-6Z-jkt" secondAttribute="top" id="Yka-iA-726"/>
+                            <constraint firstItem="1Xn-k8-5NC" firstAttribute="width" secondItem="spU-hJ-0iY" secondAttribute="width" multiplier="0.6" id="pcr-ml-QKv"/>
+                            <constraint firstItem="spU-hJ-0iY" firstAttribute="width" secondItem="s1S-6Z-jkt" secondAttribute="width" id="zP9-lk-85r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nd0-NO-BI7"/>
+                    </view>
+                    <connections>
+                        <outlet property="createBubbleView" destination="2F4-YC-J1l" id="LJV-zM-foD"/>
+                        <outlet property="mapView" destination="spU-hJ-0iY" id="eHe-hk-yZc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iej-LZ-QVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="-330"/>
+        </scene>
+    </scenes>
+</document>

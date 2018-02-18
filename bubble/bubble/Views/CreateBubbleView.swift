@@ -27,7 +27,7 @@ class CreateBubbleView: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("BubbleCreateView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("CreateBubbleView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]

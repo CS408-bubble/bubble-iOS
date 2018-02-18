@@ -74,7 +74,7 @@ class DataService {
             }
         })
     }
-    
+  
     // Returns all bubbles from database TODO: Only return nearest bubbles
     func getBubbles(latitude: Double, longitude: Double, success: @escaping ([Bubble]) -> (), failure: @escaping (Error) -> ()) {
         bubbleCollection.getDocuments { (bubblesSnapshot, error) in
