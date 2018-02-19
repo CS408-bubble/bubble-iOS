@@ -25,9 +25,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         super.viewDidLoad()
         setupMap()
         setupBubbleView()
-        // Retrieve posts around me with backend function!
-        
-        var bubbleTimer = Timer(timeInterval: 5.0, target: self, selector: #selector(getBubblesNearCurrentLocation), userInfo: nil, repeats: true)
+        let bubbleTimer = Timer(timeInterval: 5.0, target: self, selector: #selector(getBubblesNearCurrentLocation), userInfo: nil, repeats: true)
+        bubbleTimer.fire()
     }
     
     @objc func getBubblesNearCurrentLocation() {
