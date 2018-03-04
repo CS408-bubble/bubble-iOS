@@ -12,7 +12,6 @@ target 'bubble' do
   pod "FacebookCore"
   pod "FacebookLogin"
   pod "GoogleSignIn"
-  
 
   target 'bubbleTests' do
     inherit! :search_paths
