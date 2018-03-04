@@ -12,18 +12,25 @@
 		240BBE97202F9D7C00DD1524 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240BBE96202F9D7C00DD1524 /* MapViewController.swift */; };
 		24E9978F202232DE009EF2FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E9978E202232DE009EF2FF /* AppDelegate.swift */; };
 		24E99791202232DE009EF2FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E99790202232DE009EF2FF /* ViewController.swift */; };
-		24E99794202232DE009EF2FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E99792202232DE009EF2FF /* Main.storyboard */; };
 		24E99796202232DE009EF2FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E99795202232DE009EF2FF /* Assets.xcassets */; };
 		24E99799202232DE009EF2FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E99797202232DE009EF2FF /* LaunchScreen.storyboard */; };
 		24E997A4202232DE009EF2FF /* bubbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E997A3202232DE009EF2FF /* bubbleTests.swift */; };
 		24E997AF202232DE009EF2FF /* bubbleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E997AE202232DE009EF2FF /* bubbleUITests.swift */; };
+		2A097B1F2033A5A800DB2EAC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A097B1E2033A5A800DB2EAC /* AuthService.swift */; };
+		2A097B212035661500DB2EAC /* AuthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A097B202035661500DB2EAC /* AuthLoginViewController.swift */; };
+		2A615AD22030353400267F76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A615AD12030353400267F76 /* GoogleService-Info.plist */; };
+		2A615AD52030ACEB00267F76 /* SucessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A615AD42030ACEB00267F76 /* SucessViewController.swift */; };
+		2A701125202F9E99002BA176 /* AccountAuthStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A701123202F9E99002BA176 /* AccountAuthStoryboard.storyboard */; };
+		2A701127202FB719002BA176 /* AccountAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A701126202FB719002BA176 /* AccountAuthViewController.swift */; };
+		2A9CBD102033A2E000C8BA48 /* AuthRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CBD0F2033A2E000C8BA48 /* AuthRegisterViewController.swift */; };
+		2AD33CD32039EF2900919952 /* AuthEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD33CD22039EF2900919952 /* AuthEntryViewController.swift */; };
 		477D9E034B740E6CD11B8DE4 /* Pods_bubbleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47A4ACECEF2D0546BA3DC45 /* Pods_bubbleTests.framework */; };
 		7ACF0920CED84CAA58043DFC /* Pods_bubbleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A6848ED670E80D69AEE3A4 /* Pods_bubbleUITests.framework */; };
 		C7B14506202D013500C9832F /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B14505202D013400C9832F /* Bubble.swift */; };
 		C7B1450B202D065B00C9832F /* CreateBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7B1450A202D065B00C9832F /* CreateBubbleView.xib */; };
 		C7B1450D202D082D00C9832F /* CreateBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B1450C202D082D00C9832F /* CreateBubbleView.swift */; };
+		FA46308E96437898520F4142 /* Pods_bubble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75072140A2121EB551406AAB /* Pods_bubble.framework */; };
 		FC0545B8202CD3AF00A6F2CC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0545B7202CD3AF00A6F2CC /* User.swift */; };
-		FCD6F0B9202CD8BA00A658C8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD6F0B8202CD8BA00A658C8 /* AuthService.swift */; };
 		FCD6F0BB202CD8C200A658C8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD6F0BA202CD8C200A658C8 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +58,6 @@
 		24E9978B202232DE009EF2FF /* bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E9978E202232DE009EF2FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24E99790202232DE009EF2FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		24E99793202232DE009EF2FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24E99795202232DE009EF2FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24E99798202232DE009EF2FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24E9979A202232DE009EF2FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +67,15 @@
 		24E997AA202232DE009EF2FF /* bubbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bubbleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E997AE202232DE009EF2FF /* bubbleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubbleUITests.swift; sourceTree = "<group>"; };
 		24E997B0202232DE009EF2FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A097B1E2033A5A800DB2EAC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		2A097B202035661500DB2EAC /* AuthLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginViewController.swift; sourceTree = "<group>"; };
+		2A615AD12030353400267F76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2A615AD320309E0900267F76 /* bubble.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bubble.entitlements; sourceTree = "<group>"; };
+		2A615AD42030ACEB00267F76 /* SucessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessViewController.swift; sourceTree = "<group>"; };
+		2A701124202F9E99002BA176 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AccountAuthStoryboard.storyboard; sourceTree = "<group>"; };
+		2A701126202FB719002BA176 /* AccountAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAuthViewController.swift; sourceTree = "<group>"; };
+		2A9CBD0F2033A2E000C8BA48 /* AuthRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRegisterViewController.swift; sourceTree = "<group>"; };
+		2AD33CD22039EF2900919952 /* AuthEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEntryViewController.swift; sourceTree = "<group>"; };
 		75072140A2121EB551406AAB /* Pods_bubble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bubble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82981578508418AA5255F405 /* Pods-bubbleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bubbleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bubbleTests/Pods-bubbleTests.release.xcconfig"; sourceTree = "<group>"; };
 		933067298B0CD01DE1F5E8CB /* Pods-bubbleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bubbleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bubbleUITests/Pods-bubbleUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,7 +88,6 @@
 		E47A4ACECEF2D0546BA3DC45 /* Pods_bubbleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bubbleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA229941A2DA5921E675AF5C /* Pods-bubble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bubble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bubble/Pods-bubble.debug.xcconfig"; sourceTree = "<group>"; };
 		FC0545B7202CD3AF00A6F2CC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		FCD6F0B8202CD8BA00A658C8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FCD6F0BA202CD8C200A658C8 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14175941CBD3A2CA8CFF233B /* Pods_bubble.framework in Frameworks */,
+				FA46308E96437898520F4142 /* Pods_bubble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +144,7 @@
 		24E9978D202232DE009EF2FF /* bubble */ = {
 			isa = PBXGroup;
 			children = (
+				2A615AD320309E0900267F76 /* bubble.entitlements */,
 				24E9978E202232DE009EF2FF /* AppDelegate.swift */,
 				FC0545B6202CD38C00A6F2CC /* Utilities */,
 				FC0545B5202CD38500A6F2CC /* Services */,
@@ -138,6 +153,7 @@
 				FC0545B4202CD35A00A6F2CC /* Controllers */,
 				24E99795202232DE009EF2FF /* Assets.xcassets */,
 				24E9979A202232DE009EF2FF /* Info.plist */,
+				2A615AD12030353400267F76 /* GoogleService-Info.plist */,
 			);
 			path = bubble;
 			sourceTree = "<group>";
@@ -196,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				24E99797202232DE009EF2FF /* LaunchScreen.storyboard */,
+				2A701123202F9E99002BA176 /* AccountAuthStoryboard.storyboard */,
 				24E99792202232DE009EF2FF /* Main.storyboard */,
 				240BBE93202F9CC800DD1524 /* Map.storyboard */,
 				C7B1450A202D065B00C9832F /* CreateBubbleView.xib */,
@@ -208,6 +225,11 @@
 			isa = PBXGroup;
 			children = (
 				24E99790202232DE009EF2FF /* ViewController.swift */,
+				2A701126202FB719002BA176 /* AccountAuthViewController.swift */,
+				2A615AD42030ACEB00267F76 /* SucessViewController.swift */,
+				2A9CBD0F2033A2E000C8BA48 /* AuthRegisterViewController.swift */,
+				2A097B202035661500DB2EAC /* AuthLoginViewController.swift */,
+				2AD33CD22039EF2900919952 /* AuthEntryViewController.swift */,
 				240BBE96202F9D7C00DD1524 /* MapViewController.swift */,
 			);
 			path = Controllers;
@@ -216,8 +238,8 @@
 		FC0545B5202CD38500A6F2CC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FCD6F0B8202CD8BA00A658C8 /* AuthService.swift */,
 				FCD6F0BA202CD8C200A658C8 /* DataService.swift */,
+				2A097B1E2033A5A800DB2EAC /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -307,6 +329,11 @@
 					24E9978A202232DE009EF2FF = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					24E9979E202232DE009EF2FF = {
 						CreatedOnToolsVersion = 9.2;
@@ -348,6 +375,8 @@
 				C7B1450B202D065B00C9832F /* CreateBubbleView.xib in Resources */,
 				24E99799202232DE009EF2FF /* LaunchScreen.storyboard in Resources */,
 				24E99796202232DE009EF2FF /* Assets.xcassets in Resources */,
+				2A615AD22030353400267F76 /* GoogleService-Info.plist in Resources */,
+				2A701125202F9E99002BA176 /* AccountAuthStoryboard.storyboard in Resources */,
 				24E99794202232DE009EF2FF /* Main.storyboard in Resources */,
 				240BBE95202F9CC800DD1524 /* Map.storyboard in Resources */,
 			);
@@ -414,7 +443,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -557,14 +586,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A615AD52030ACEB00267F76 /* SucessViewController.swift in Sources */,
 				24E99791202232DE009EF2FF /* ViewController.swift in Sources */,
+				2A097B212035661500DB2EAC /* AuthLoginViewController.swift in Sources */,
+				2AD33CD32039EF2900919952 /* AuthEntryViewController.swift in Sources */,
 				240BBE97202F9D7C00DD1524 /* MapViewController.swift in Sources */,
 				C7B14506202D013500C9832F /* Bubble.swift in Sources */,
 				24E9978F202232DE009EF2FF /* AppDelegate.swift in Sources */,
 				FC0545B8202CD3AF00A6F2CC /* User.swift in Sources */,
+				2A701127202FB719002BA176 /* AccountAuthViewController.swift in Sources */,
 				C7B1450D202D082D00C9832F /* CreateBubbleView.swift in Sources */,
-				FCD6F0B9202CD8BA00A658C8 /* AuthService.swift in Sources */,
+				2A097B1F2033A5A800DB2EAC /* AuthService.swift in Sources */,
 				FCD6F0BB202CD8C200A658C8 /* DataService.swift in Sources */,
+				2A9CBD102033A2E000C8BA48 /* AuthRegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,17 +645,17 @@
 		24E99792202232DE009EF2FF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				24E99793202232DE009EF2FF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		24E99797202232DE009EF2FF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
 				24E99798202232DE009EF2FF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2A701123202F9E99002BA176 /* AccountAuthStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A701124202F9E99002BA176 /* Base */,
+			);
+			name = AccountAuthStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -739,6 +773,7 @@
 			baseConfigurationReference = EA229941A2DA5921E675AF5C /* Pods-bubble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bubble/bubble.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q72GMFLLR4;
 				INFOPLIST_FILE = bubble/Info.plist;
@@ -755,6 +790,7 @@
 			baseConfigurationReference = 16D35B7316F5B6DF366CB8AD /* Pods-bubble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bubble/bubble.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q72GMFLLR4;
 				INFOPLIST_FILE = bubble/Info.plist;
