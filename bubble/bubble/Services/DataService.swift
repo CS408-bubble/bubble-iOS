@@ -96,4 +96,66 @@ class DataService {
         }
         
     }
+    
+    func voteBubble(bubble: Bubble, uid: String, success: @escaping (Int) ->(), failure: @escaping (Error) -> ()) {
+        
+        let bubbleRef = bubbleCollection.document(bubble.uid)
+        let votingRef = bubbleVoteCollection.document(bubble.uid)
+        
+        db.runTransaction({ (transaction, errorPointer) -> Any? in
+            var bubbleDoc: DocumentSnapshot
+            do {
+                bubbleDoc = try transaction.getDocument(bubbleRef)
+            } catch let fetchError as NSError {
+                errorPointer?.pointee = fetchError
+                return nil
+            }
+            
+            let bubbleData = bubbleDoc.data()
+            let oldVoteCount = bubbleData["voteCount"] as! Int
+            
+            let newVoteCount = oldVoteCount + 1
+            
+            transaction.updateData(["voteCount": newVoteCount], forDocument: bubbleRef)
+            transaction.updateData([uid: true], forDocument: votingRef)
+            return newVoteCount
+        }, completion: { (object, error) in
+            if let error = error {
+                failure(error)
+            } else {
+                success(object as! Int)
+            }
+        })
+    }
+    
+    func unvoteBubble(bubble: Bubble, uid: String, success: @escaping (Int) ->(), failure: @escaping (Error) -> ()) {
+        
+        let bubbleRef = bubbleCollection.document(bubble.uid)
+        let votingRef = bubbleVoteCollection.document(bubble.uid)
+        
+        db.runTransaction({ (transaction, errorPointer) -> Any? in
+            var bubbleDoc: DocumentSnapshot
+            do {
+                bubbleDoc = try transaction.getDocument(bubbleRef)
+            } catch let fetchError as NSError {
+                errorPointer?.pointee = fetchError
+                return nil
+            }
+            
+            let bubbleData = bubbleDoc.data()
+            let oldVoteCount = bubbleData["voteCount"] as! Int
+            
+            let newVoteCount = oldVoteCount - 1
+            
+            transaction.updateData(["voteCount": newVoteCount], forDocument: bubbleRef)
+            transaction.updateData([uid: false], forDocument: votingRef)
+            return newVoteCount
+        }, completion: { (object, error) in
+            if let error = error {
+                failure(error)
+            } else {
+                success(object as! Int)
+            }
+        })
+    }
 }
