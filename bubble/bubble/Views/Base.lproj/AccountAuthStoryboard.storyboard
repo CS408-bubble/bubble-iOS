@@ -88,7 +88,7 @@
                         <viewLayoutGuide key="safeArea" id="IqL-gL-KGq"/>
                     </view>
                     <connections>
-                        <segue destination="Psa-X4-xbD" kind="show" identifier="segueOnAlreadyLogin" id="epC-dL-mbT"/>
+                        <segue destination="gU1-zi-vcZ" kind="presentation" identifier="segueOnAlreadyLogin" id="Ebg-7K-hVB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSC-tr-jm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -281,7 +281,7 @@
                     <connections>
                         <outlet property="emailField" destination="HNX-kt-BQc" id="MSd-Hd-4Ep"/>
                         <outlet property="passwordField" destination="YYu-94-769" id="e6d-J0-4LR"/>
-                        <segue destination="Psa-X4-xbD" kind="show" identifier="segueOnSuccessfulLogin" id="GiF-1k-92F"/>
+                        <segue destination="gU1-zi-vcZ" kind="presentation" identifier="segueOnSuccessfulLogin" id="0sj-IE-RMB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKo-Ht-W3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -445,63 +445,20 @@
                         <outlet property="emailField" destination="r7j-EC-fPO" id="w8S-mr-0Tf"/>
                         <outlet property="fullNameField" destination="Xv8-4A-Sdw" id="6l5-TK-6p8"/>
                         <outlet property="passwordField" destination="lze-Mt-HA2" id="i0m-xK-Vqp"/>
-                        <segue destination="Psa-X4-xbD" kind="show" identifier="segueOnSuccessfulActCreated" id="pMN-IJ-zzN"/>
+                        <segue destination="gU1-zi-vcZ" kind="presentation" identifier="segueOnSuccessfulActCreated" id="axi-Dc-xgQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54n-SF-XRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="218" y="802"/>
         </scene>
-        <!--Sucess View Controller-->
-        <scene sceneID="C4U-Uc-oyw">
+        <!--Map-->
+        <scene sceneID="wj3-Ub-wxN">
             <objects>
-                <viewController id="Psa-X4-xbD" customClass="SucessViewController" customModule="bubble" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AGc-9q-yW6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgS-pj-Gyr">
-                                <rect key="frame" x="90" y="394" width="140" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5OT-Ck-Ipb"/>
-                                </constraints>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <segue destination="Ui5-oB-kch" kind="show" id="t80-Iy-CBM"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login/SignUp Successfull!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXb-VM-Ltz">
-                                <rect key="frame" x="40" y="267" width="240" height="84"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="d9n-qA-VJo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble-header" translatesAutoresizingMaskIntoConstraints="NO" id="9xX-up-YGy">
-                                <rect key="frame" x="40" y="94" width="240" height="128"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="9xX-up-YGy" firstAttribute="leading" secondItem="etz-fR-0ib" secondAttribute="leading" constant="40" id="1hN-M4-s4h"/>
-                            <constraint firstItem="BgS-pj-Gyr" firstAttribute="leading" secondItem="etz-fR-0ib" secondAttribute="leading" constant="90" id="5SN-yN-Sp6"/>
-                            <constraint firstItem="9xX-up-YGy" firstAttribute="trailing" secondItem="hXb-VM-Ltz" secondAttribute="trailing" id="MAH-Ix-FR6"/>
-                            <constraint firstItem="BgS-pj-Gyr" firstAttribute="top" secondItem="hXb-VM-Ltz" secondAttribute="bottom" constant="43" id="PVm-4j-Ief"/>
-                            <constraint firstItem="9xX-up-YGy" firstAttribute="leading" secondItem="hXb-VM-Ltz" secondAttribute="leading" id="WUl-oo-H2I"/>
-                            <constraint firstItem="9xX-up-YGy" firstAttribute="top" secondItem="etz-fR-0ib" secondAttribute="top" constant="74" id="b3r-QT-0CR"/>
-                            <constraint firstItem="hXb-VM-Ltz" firstAttribute="top" secondItem="9xX-up-YGy" secondAttribute="bottom" constant="45" id="cli-Gd-fuZ"/>
-                            <constraint firstItem="hXb-VM-Ltz" firstAttribute="centerX" secondItem="BgS-pj-Gyr" secondAttribute="centerX" id="e8b-M1-A3U"/>
-                            <constraint firstItem="etz-fR-0ib" firstAttribute="bottom" secondItem="BgS-pj-Gyr" secondAttribute="bottom" constant="144" id="ibe-Hd-WHe"/>
-                            <constraint firstItem="9xX-up-YGy" firstAttribute="centerX" secondItem="AGc-9q-yW6" secondAttribute="centerX" id="nuV-v1-13S"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="etz-fR-0ib"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xcR-jz-teg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Map" id="gU1-zi-vcZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40s-MF-De8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1466" y="821"/>
+            <point key="canvasLocation" x="1392" y="706"/>
         </scene>
     </scenes>
     <resources>
@@ -509,7 +466,7 @@
         <image name="bubble-header" width="1911" height="683"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pMN-IJ-zzN"/>
+        <segue reference="axi-Dc-xgQ"/>
         <segue reference="Psh-2h-w95"/>
     </inferredMetricsTieBreakers>
 </document>
