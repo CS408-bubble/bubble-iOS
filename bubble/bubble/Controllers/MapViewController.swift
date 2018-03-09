@@ -11,13 +11,16 @@ import MapKit
 import CoreLocation
 import Firebase
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var createBubbleView: CreateBubbleView!
     @IBOutlet weak var createBubbleViewCenterY: NSLayoutConstraint!
 
     var locationManager = CLLocationManager()
+    var bubbles = [Bubble]()
+    let bubbleSemaphore = DispatchSemaphore(value: 1)
+    var currentBubble: Bubble!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,4 +124,57 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
+}
+
+extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let centerCoordinate = mapView.centerCoordinate
+        bubbleSemaphore.wait()
+        DataService.instance.getBubbles(latitude: centerCoordinate.latitude, longitude: centerCoordinate.longitude, success: { (bubbles) in
+            self.bubbles = bubbles
+            DispatchQueue.main.async {
+                self.placeBubbles()
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "BubblePin")
+        let selectButton = UIButton(type: .detailDisclosure)
+        selectButton.addTarget(self, action: #selector(pinButtonClicked(_:)), for: .touchUpInside)
+        pinView.rightCalloutAccessoryView = selectButton
+        pinView.canShowCallout = true
+        
+        return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let bubbleAnnotationView = view as! MKPinAnnotationView
+        let bubbleAnnotation = bubbleAnnotationView.annotation as! BubbleAnnotation
+        currentBubble = bubbleAnnotation.bubble
+    }
+    
+    @objc func pinButtonClicked(_ sender: UIButton) {
+        // TODO: Do something with selected bubble using currentBubble
+        print(currentBubble.text)
+    }
+    
+    func placeBubbles() {
+        for bubble in bubbles {
+            let bubbleAnnotation = BubbleAnnotation()
+            bubbleAnnotation.bubble = bubble
+            bubbleAnnotation.title = bubble.text
+            bubbleAnnotation.coordinate = CLLocationCoordinate2DMake(bubble.geopoint.latitude, bubble.geopoint.longitude)
+            mapView.addAnnotation(bubbleAnnotation)
+        }
+        
+        bubbleSemaphore.signal()
+    }
+    
 }

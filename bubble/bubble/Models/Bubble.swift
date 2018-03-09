@@ -16,6 +16,7 @@ class Bubble {
     private(set) var voteCount: Int!
     private(set) var uid: String!
     private(set) var geopoint: GeoPoint!
+    private(set) var timestamp: Double!
     
     init(bubbleData: [String: Any]) {
         text = bubbleData["text"] as! String
@@ -23,5 +24,6 @@ class Bubble {
         voteCount = bubbleData["voteCount"] as! Int
         uid = bubbleData["uid"] as! String
         geopoint = bubbleData["location"] as! GeoPoint
+        timestamp = bubbleData["timestamp"] as! Double
     }
 }

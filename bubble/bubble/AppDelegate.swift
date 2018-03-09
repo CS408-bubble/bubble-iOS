@@ -20,6 +20,12 @@ import GoogleSignIn
         // Override point for customization after application launch.
         FirebaseApp.configure()
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        if Auth.auth().currentUser != nil {
+            let storyboard = UIStoryboard(name: "Map", bundle: nil)
+            window?.rootViewController = storyboard.instantiateInitialViewController()
+        }
+        
         return true
      }
 
