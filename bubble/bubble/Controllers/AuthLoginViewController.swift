@@ -52,6 +52,7 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
             self.present(alert, animated: true, completion: nil)
             return
         }
+
         AuthService.sharedInstance.signInEmail(email: email, password: password, success: {(true) in
             print("successfull Signed in")
             

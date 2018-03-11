@@ -39,6 +39,16 @@ class AuthService {
         } 
     }
     
+    func LogOutClicked() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            print("am out mann")
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
 
 /*class AuthService : NSObject, GIDSignInDelegate{
     //class AuthService {

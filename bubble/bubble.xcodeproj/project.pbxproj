@@ -15,11 +15,15 @@
 		24E9978F202232DE009EF2FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E9978E202232DE009EF2FF /* AppDelegate.swift */; };
 		24E99791202232DE009EF2FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E99790202232DE009EF2FF /* ViewController.swift */; };
 		24E99796202232DE009EF2FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E99795202232DE009EF2FF /* Assets.xcassets */; };
-		24E99799202232DE009EF2FF /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		24E99799202232DE009EF2FF /* (null) in Resources */ = {isa = PBXBuildFile; };
 		24E997A4202232DE009EF2FF /* bubbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E997A3202232DE009EF2FF /* bubbleTests.swift */; };
 		24E997AF202232DE009EF2FF /* bubbleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E997AE202232DE009EF2FF /* bubbleUITests.swift */; };
 		2A097B1F2033A5A800DB2EAC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A097B1E2033A5A800DB2EAC /* AuthService.swift */; };
 		2A097B212035661500DB2EAC /* AuthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A097B202035661500DB2EAC /* AuthLoginViewController.swift */; };
+		2A28F29D2055C24F0023E007 /* BubbleTBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28F29C2055C24F0023E007 /* BubbleTBViewController.swift */; };
+		2A5A79152055BE5D005DD2CE /* BubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5A79142055BE5D005DD2CE /* BubbleTableViewCell.swift */; };
+		2A5FA2E82054D35900B49AA8 /* BubbleAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5FA2E72054D35900B49AA8 /* BubbleAnnotation.swift */; };
+		2A5FA2EC20553F1200B49AA8 /* BubbleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5FA2EB20553F1200B49AA8 /* BubbleViewController.swift */; };
 		2A615AD52030ACEB00267F76 /* SucessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A615AD42030ACEB00267F76 /* SucessViewController.swift */; };
 		2A701125202F9E99002BA176 /* AccountAuthStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A701123202F9E99002BA176 /* AccountAuthStoryboard.storyboard */; };
 		2A701127202FB719002BA176 /* AccountAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A701126202FB719002BA176 /* AccountAuthViewController.swift */; };
@@ -73,6 +77,10 @@
 		24E997B0202232DE009EF2FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A097B1E2033A5A800DB2EAC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2A097B202035661500DB2EAC /* AuthLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginViewController.swift; sourceTree = "<group>"; };
+		2A28F29C2055C24F0023E007 /* BubbleTBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTBViewController.swift; sourceTree = "<group>"; };
+		2A5A79142055BE5D005DD2CE /* BubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTableViewCell.swift; sourceTree = "<group>"; };
+		2A5FA2E72054D35900B49AA8 /* BubbleAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleAnnotation.swift; sourceTree = "<group>"; };
+		2A5FA2EB20553F1200B49AA8 /* BubbleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleViewController.swift; sourceTree = "<group>"; };
 		2A615AD320309E0900267F76 /* bubble.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bubble.entitlements; sourceTree = "<group>"; };
 		2A615AD42030ACEB00267F76 /* SucessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessViewController.swift; sourceTree = "<group>"; };
 		2A701124202F9E99002BA176 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AccountAuthStoryboard.storyboard; sourceTree = "<group>"; };
@@ -205,6 +213,7 @@
 		FC0545B2202CD35000A6F2CC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2A5FA2E72054D35900B49AA8 /* BubbleAnnotation.swift */,
 				FC0545B7202CD3AF00A6F2CC /* User.swift */,
 				C7B14505202D013400C9832F /* Bubble.swift */,
 			);
@@ -227,6 +236,7 @@
 		FC0545B4202CD35A00A6F2CC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A5A79142055BE5D005DD2CE /* BubbleTableViewCell.swift */,
 				24E99790202232DE009EF2FF /* ViewController.swift */,
 				2A701126202FB719002BA176 /* AccountAuthViewController.swift */,
 				2A615AD42030ACEB00267F76 /* SucessViewController.swift */,
@@ -235,6 +245,8 @@
 				2AD33CD22039EF2900919952 /* AuthEntryViewController.swift */,
 				240BBE96202F9D7C00DD1524 /* MapViewController.swift */,
 				249C180B2050867B009E20A4 /* ARViewController.swift */,
+				2A5FA2EB20553F1200B49AA8 /* BubbleViewController.swift */,
+				2A28F29C2055C24F0023E007 /* BubbleTBViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -378,7 +390,7 @@
 			files = (
 				C7B1450B202D065B00C9832F /* CreateBubbleView.xib in Resources */,
 				249C181020508696009E20A4 /* Map.storyboard in Resources */,
-				24E99799202232DE009EF2FF /* BuildFile in Resources */,
+				24E99799202232DE009EF2FF /* (null) in Resources */,
 				24E99796202232DE009EF2FF /* Assets.xcassets in Resources */,
 				249C180E20508686009E20A4 /* AR.storyboard in Resources */,
 				2A701125202F9E99002BA176 /* AccountAuthStoryboard.storyboard in Resources */,
@@ -592,15 +604,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A5FA2EC20553F1200B49AA8 /* BubbleViewController.swift in Sources */,
 				2A615AD52030ACEB00267F76 /* SucessViewController.swift in Sources */,
 				24E99791202232DE009EF2FF /* ViewController.swift in Sources */,
 				2A097B212035661500DB2EAC /* AuthLoginViewController.swift in Sources */,
 				2AD33CD32039EF2900919952 /* AuthEntryViewController.swift in Sources */,
+				2A5A79152055BE5D005DD2CE /* BubbleTableViewCell.swift in Sources */,
 				240BBE97202F9D7C00DD1524 /* MapViewController.swift in Sources */,
 				C7B14506202D013500C9832F /* Bubble.swift in Sources */,
 				24E9978F202232DE009EF2FF /* AppDelegate.swift in Sources */,
 				249C180C2050867C009E20A4 /* ARViewController.swift in Sources */,
 				FC0545B8202CD3AF00A6F2CC /* User.swift in Sources */,
+				2A5FA2E82054D35900B49AA8 /* BubbleAnnotation.swift in Sources */,
+				2A28F29D2055C24F0023E007 /* BubbleTBViewController.swift in Sources */,
 				2A701127202FB719002BA176 /* AccountAuthViewController.swift in Sources */,
 				C7B1450D202D082D00C9832F /* CreateBubbleView.swift in Sources */,
 				2A097B1F2033A5A800DB2EAC /* AuthService.swift in Sources */,

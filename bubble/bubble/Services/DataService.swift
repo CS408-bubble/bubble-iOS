@@ -52,7 +52,6 @@ class DataService {
     func getUser(userID: String)-> [String:Any] {
         var userData: [String:Any] = [:]
         // retrieve user from database and send back using handler
-       // db.collection("users").whereField(userID, isEqualTo: userID).getDocuments() { (querySnapshot, err) in
             userCollection.whereField("uid", isEqualTo: userID).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -120,7 +119,6 @@ class DataService {
                 for bubble in bubbles {
                     bubbleResult.append(Bubble(bubbleData: bubble.data()))
                 }
-                
                 success(bubbleResult)
             }
         }
@@ -141,7 +139,6 @@ class DataService {
                 for bubble in bubbles {
                     bubbleResult.append(Bubble(bubbleData: bubble.data()))
                 }
-                
                 success(bubbleResult)
             }
         }

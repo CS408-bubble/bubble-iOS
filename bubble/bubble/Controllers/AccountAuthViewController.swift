@@ -133,6 +133,7 @@ class AccountAuthViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     //helper to sign user in
+    
     func signTheUserIn(email: String, password: String) {
         print("Alert: \(email) | \(password)")
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
