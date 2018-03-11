@@ -71,7 +71,7 @@ class DataService {
     }
     
     // Gets a user's profile picture from Firebase Storage
-    func getProfilePicture(user: User, handler: @escaping (_ image: UIImage) -> ()) {
+    func getProfilePicture(user: BubbleUser, handler: @escaping (_ image: UIImage) -> ()) {
         guard let url = URL(string: user.profilePictureURL) else {
             return
         }
@@ -209,4 +209,34 @@ class DataService {
             }
         })
     }
+    
+    func deleteUserData(uid: String, success: @escaping (Bool)->(), failure: @escaping (Error)->()) {
+        userCollection.document(uid).setData([:]) { (error) in
+            if let error = error {
+                failure(error)
+            } else {
+                success(true)
+            }
+        }
+    }
+    
+    func deleteBubble(bubble: Bubble, success: @escaping (Bool) ->(), failure: @escaping (Error) -> ()) {
+        
+        let bubbleRef = bubbleCollection.document(bubble.uid)
+        let votingRef = bubbleVoteCollection.document(bubble.uid)
+        
+        db.runTransaction({ (transaction, errorPointer) -> Any? in
+            transaction.deleteDocument(bubbleRef)
+            transaction.deleteDocument(votingRef)
+            
+            return nil
+        }, completion: { (object, error) in
+            if let error = error {
+                failure(error)
+            } else {
+                success(true)
+            }
+        })
+    }
+    
 }
