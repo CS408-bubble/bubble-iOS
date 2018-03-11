@@ -14,16 +14,28 @@ import FBSDKCoreKit
 import FacebookCore
 
 class AuthService {
-     static var sharedInstance = AuthService()
+    static var sharedInstance = AuthService()
     
-    
-    func registerEmail(email: String, password: String, confirmPassword: String, success: @escaping (Bool)->(), failure: @escaping (Error)->()) {
+    func registerEmail(userData: [String: Any], success: @escaping (User)->(), failure: @escaping (Error)->()) {
+        var userData = userData
+        userData["postCount"] = 0
+        let email = userData["email"] as! String
+        let password = userData["password"] as! String
+        userData["password"] = nil
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
+                user?.delete(completion: nil)
                 failure(error)
-            } else if user != nil {
-                success(true)
+            } else if let user = user {
+                DataService.instance.userCollection.document(user.uid).setData(userData, completion: { (error) in
+                    if let error = error {
+                        user.delete(completion: nil)
+                        failure(error)
+                    } else {
+                        success(user)
+                    }
+                })
             }
         }
     }
@@ -40,6 +52,15 @@ class AuthService {
     }
     
 
+    func deleteUser(user: User, success: @escaping (Bool)->(), failure: @escaping (Error)->()) {
+        user.delete { (error) in
+            if let error = error {
+                failure(error)
+            } else {
+                success(true)
+            }
+        }
+    }
 /*class AuthService : NSObject, GIDSignInDelegate{
     //class AuthService {
     static var sharedInstance = AuthService()
