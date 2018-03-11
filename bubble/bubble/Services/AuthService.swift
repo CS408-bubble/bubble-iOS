@@ -61,6 +61,50 @@ class AuthService {
             }
         }
     }
+    
+    func loginOrRegisterWithFacebook(credential: AuthCredential, success: @escaping (User, [String: Any], Bool) -> (), failure: @escaping (Error) -> ()) {
+        
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"]).start { (request, result, error) in
+            if let error = error {
+                failure(error)
+            } else if let result = result {
+                let userInfo = result as! [String: Any]
+                print(userInfo)
+                Auth.auth().signIn(with: credential) { (user, error) in
+                    if let error = error {
+                        failure(error)
+                    } else if let user = user {
+                        DataService.instance.userCollection.document(user.uid).getDocument(completion: { (userDoc, error) in
+                            if let error = error {
+                                failure(error)
+                            } else if userDoc!.exists {
+                                success(user, userInfo, true)
+                            } else {
+                                success(user, userInfo, false)
+                            }
+                        })
+                        
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    func registerFacebookUser(uid: String, userData: [String: Any], success: @escaping () ->(), failure: @escaping (Error) -> ()) {
+        var userData = userData
+        userData["postCount"] = 0
+        userData["uid"] = uid
+        
+        DataService.instance.userCollection.document(uid).setData(userData, completion: { (error) in
+            if let error = error {
+                failure(error)
+            } else {
+                success()
+            }
+        })
+    }
+    
 /*class AuthService : NSObject, GIDSignInDelegate{
     //class AuthService {
     static var sharedInstance = AuthService()

@@ -183,7 +183,7 @@
                                     <action selector="onLoginBtn:" destination="FgF-76-m5I" eventType="touchUpInside" id="MzP-O9-FE1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-hY-cHK">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-hY-cHK" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="60" y="461" width="200" height="30"/>
                                 <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -197,9 +197,6 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onFBLoginBTN:" destination="FgF-76-m5I" eventType="touchUpInside" id="hSh-GW-cgs"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Or login with" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtj-uh-Pcb">
                                 <rect key="frame" x="83" y="394" width="154" height="21"/>
@@ -270,8 +267,10 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="HNX-kt-BQc" id="MSd-Hd-4Ep"/>
+                        <outlet property="fbButton" destination="3DF-hY-cHK" id="oQs-af-v0Q"/>
                         <outlet property="passwordField" destination="YYu-94-769" id="e6d-J0-4LR"/>
                         <segue destination="gU1-zi-vcZ" kind="presentation" identifier="segueOnSuccessfulLogin" id="0sj-IE-RMB"/>
+                        <segue destination="loO-mO-nHo" kind="presentation" identifier="facebookSegue" id="ARK-yX-5ws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKo-Ht-W3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -438,6 +437,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0sj-IE-RMB"/>
+        <segue reference="ARK-yX-5ws"/>
         <segue reference="JvC-Cv-3ev"/>
     </inferredMetricsTieBreakers>
 </document>
