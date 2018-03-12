@@ -67,32 +67,25 @@
                                     <segue destination="gtG-K7-rTu" kind="show" id="tzO-25-r5j"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWf-Tg-joU">
-                                <rect key="frame" x="259" y="40" width="100" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIv-zO-D2u">
+                                <rect key="frame" x="278" y="40" width="78" height="35"/>
                                 <color key="backgroundColor" red="0.4238105714" green="0.58958220480000001" blue="0.82358044389999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="O9k-Pf-EdQ"/>
+                                    <constraint firstAttribute="width" constant="78" id="sRd-XD-odG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Log Out">
+                                <state key="normal" title="Profile">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.masksToBounds">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="LogOutClick:" destination="JQI-MO-L07" eventType="touchUpInside" id="Yj4-gb-7sE"/>
-                                    <segue destination="17I-qD-tWB" kind="show" identifier="segueOnSuccessfulLogOut" id="qE8-yZ-JtG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIv-zO-D2u">
-                                <rect key="frame" x="301" y="40" width="55" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="O9k-Pf-EdQ"/>
-                                    <constraint firstAttribute="width" constant="55" id="sRd-XD-odG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Profile"/>
                                 <connections>
                                     <segue destination="BdC-K4-x2K" kind="show" id="hqL-vh-oI5"/>
                                 </connections>
@@ -105,14 +98,12 @@
                             <constraint firstItem="1Xn-k8-5NC" firstAttribute="centerX" secondItem="nd0-NO-BI7" secondAttribute="centerX" id="CNI-2w-xYc"/>
                             <constraint firstItem="2F4-YC-J1l" firstAttribute="centerY" secondItem="nd0-NO-BI7" secondAttribute="centerY" constant="-100" id="JBY-ii-ncu"/>
                             <constraint firstItem="1Xn-k8-5NC" firstAttribute="bottom" secondItem="nd0-NO-BI7" secondAttribute="bottom" constant="-20" id="M4Y-6U-6wU"/>
-                            <constraint firstItem="tWf-Tg-joU" firstAttribute="top" secondItem="nd0-NO-BI7" secondAttribute="top" constant="20" id="NWz-K9-gV3"/>
                             <constraint firstItem="2F4-YC-J1l" firstAttribute="width" secondItem="s1S-6Z-jkt" secondAttribute="width" multiplier="0.9" id="OYT-fs-neM"/>
                             <constraint firstAttribute="bottom" secondItem="spU-hJ-0iY" secondAttribute="bottom" id="WNb-g6-eh8"/>
                             <constraint firstItem="2F4-YC-J1l" firstAttribute="centerX" secondItem="nd0-NO-BI7" secondAttribute="centerX" id="XFk-IT-mjq"/>
                             <constraint firstItem="spU-hJ-0iY" firstAttribute="top" secondItem="s1S-6Z-jkt" secondAttribute="top" id="Yka-iA-726"/>
-                            <constraint firstItem="nd0-NO-BI7" firstAttribute="trailing" secondItem="tWf-Tg-joU" secondAttribute="trailing" constant="16" id="Z2e-A9-Ped"/>
-                            <constraint firstItem="bQL-5C-cIO" firstAttribute="leading" secondItem="nd0-NO-BI7" secondAttribute="leading" constant="20" id="kVd-8Y-L5E"/>
                             <constraint firstItem="nd0-NO-BI7" firstAttribute="trailing" secondItem="DIv-zO-D2u" secondAttribute="trailing" constant="19" id="hbN-1P-kTY"/>
+                            <constraint firstItem="bQL-5C-cIO" firstAttribute="leading" secondItem="nd0-NO-BI7" secondAttribute="leading" constant="20" id="kVd-8Y-L5E"/>
                             <constraint firstItem="1Xn-k8-5NC" firstAttribute="width" secondItem="spU-hJ-0iY" secondAttribute="width" multiplier="0.6" id="pcr-ml-QKv"/>
                             <constraint firstItem="bQL-5C-cIO" firstAttribute="top" secondItem="nd0-NO-BI7" secondAttribute="top" constant="20" id="qYK-6U-6DL"/>
                             <constraint firstItem="spU-hJ-0iY" firstAttribute="width" secondItem="s1S-6Z-jkt" secondAttribute="width" id="zP9-lk-85r"/>
@@ -128,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iej-LZ-QVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="-378"/>
+            <point key="canvasLocation" x="556" y="-378.26086956521743"/>
         </scene>
         <!--AccountAuthStoryboard-->
         <scene sceneID="400-cv-fXv">

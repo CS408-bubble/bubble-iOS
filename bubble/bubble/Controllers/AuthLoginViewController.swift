@@ -30,6 +30,7 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
 
         fbButton.delegate = self
         fbButton.readPermissions = ["email", "public_profile"]
+        fbButton.layer.cornerRadius = 5;
        //*********** AuthService.sharedInstance.googleSignInDelegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         // Do any additional setup after loading the view.
@@ -58,20 +59,15 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
 
         AuthService.sharedInstance.signInEmail(email: email, password: password, success: {(true) in
             print("successfull Signed in")
-            
-            /*var user = Auth.auth().currentUser;
-                let userDict: [String:Any] = ["firstName": user.profile.givenName, "lastName": user.profile.familyName, "fullName": user.profile.name, "email": user.profile.email]// "provider": AuthCredential.provider
-            */
-            //var myobject: User = User(userDict: [:],userID: (Auth.auth().currentUser?.uid)!)
-            
-            //DataService.instance.getUser(userID: (Auth.auth().currentUser?.uid)!, handler: myobject)
             DataService.instance.getUser(userID: (Auth.auth().currentUser?.uid)!) { (user) in
              print(user.userID)
                 print("pass retrieve")
             }
             self.performSegue(withIdentifier: "segueOnSuccessfulLogin", sender: self)
         }) { (error) in
-
+            let alert = UIAlertController(title: "Warning", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             print(error.localizedDescription)
         }
     }

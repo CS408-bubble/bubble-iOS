@@ -31,15 +31,13 @@ class BubbleViewController: UIViewController {
         bubbleTextField.numberOfLines = 0;
         bubbleTextField.text = currentBubble.text
         timeTextField.text = ("\(Date(timeIntervalSince1970: currentBubble.timestamp))")
-        /*DataService.instance.getUser(userID: currentBubble.uid) { (user) in
-            if(user != nil){
-                print("getting user sucessful")
-                //print("\(user.firstName)")
-                //self.ownerTextField.text = user.firstName
-            }else{
-                print("getting user unsucessful")
-            }
-        }*/
+        
+        print("\("user.name")")
+        print(currentBubble.uid)
+        DataService.instance.getUser(userID: currentBubble.uid) { (user) in
+              print("\(user.name)")
+              self.ownerTextField.text = user.name
+        }
         // Do any additional setup after loading the view.
     }
 
