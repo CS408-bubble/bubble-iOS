@@ -53,7 +53,6 @@ class AuthService {
         } 
     }
     
-<<<<<<< HEAD
     func LogOutClicked() {
         let firebaseAuth = Auth.auth()
         do {
@@ -64,7 +63,6 @@ class AuthService {
         }
     }
     
-=======
     func signOut(success: @escaping (Bool) -> (Void)) {
         if Auth.auth().currentUser != nil {
             do {
@@ -91,7 +89,6 @@ class AuthService {
         })
     }
     
->>>>>>> upstream/sprint
 
     func deleteUser(user: User, success: @escaping (Bool)->(), failure: @escaping (Error)->()) {
         user.delete { (error) in

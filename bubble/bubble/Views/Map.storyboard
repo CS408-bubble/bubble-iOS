@@ -83,6 +83,8 @@
                                 <connections>
                                     <action selector="LogOutClick:" destination="JQI-MO-L07" eventType="touchUpInside" id="Yj4-gb-7sE"/>
                                     <segue destination="17I-qD-tWB" kind="show" identifier="segueOnSuccessfulLogOut" id="qE8-yZ-JtG"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIv-zO-D2u">
                                 <rect key="frame" x="301" y="40" width="55" height="35"/>
                                 <constraints>

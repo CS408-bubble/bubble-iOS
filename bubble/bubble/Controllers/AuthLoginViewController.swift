@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import GoogleSignIn
-import FacebookCore
+//import FacebookCore
 import FacebookLogin
 import FBSDKLoginKit
 

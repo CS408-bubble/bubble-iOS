@@ -42,35 +42,6 @@ class DataService {
             }
         }
     }
-<<<<<<< HEAD
-    func getUser(userID: String,  handler: @escaping (_ user: BubbleUser) -> ()) {
-        userCollection.document(userID).getDocument { (snapshot, error) in
-            if error != nil {
-                print("GET USER ERROR: \(error?.localizedDescription)")
-                return
-            }
-                guard let userDict = snapshot?.data() else { return }
-                let user = BubbleUser(userDict: userDict, userID: userID)
-                return handler(user)
-        }
-    }
-    /*// Retrives user based on userID/user's key in Firebase
-    func getUser(userID: String)-> [String:Any] {
-        var userData: [String:Any] = [:]
-        // retrieve user from database and send back using handler
-            userCollection.whereField("uid", isEqualTo: userID).getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-
-                    //print("\(document.documentID) => \(document.data())")
-                     userData["name"] = document.data()["name"]
-                     userData["uid"] = document.data()["uid"]
-                     userData["email"] = document.data()["email"]
-                     userData["postCount"] = document.data()["postCount"]
-                }
-=======
     
     func deleteUser(uid: String) {
         userCollection.document(uid).delete()
@@ -83,19 +54,13 @@ class DataService {
             if error != nil {
                 print("GET USER ERROR: \(error?.localizedDescription)")
                 return
->>>>>>> upstream/sprint
             }
             
             guard let userDict = snapshot?.data() else { return }
             let user = BubbleUser(userDict: userDict, userID: userID)
             return handler(user)
         }
-<<<<<<< HEAD
-        return userData
-    }*/
-=======
     }
->>>>>>> upstream/sprint
     
     // Gets a user's profile picture from Firebase Storage
     func getProfilePicture(user: BubbleUser, handler: @escaping (_ image: UIImage) -> ()) {
@@ -215,7 +180,7 @@ class DataService {
             }
             
             let bubbleData = bubbleDoc.data()
-            let oldVoteCount = bubbleData["voteCount"] as! Int
+            let oldVoteCount = bubbleData!["voteCount"] as! Int
             
             let newVoteCount = oldVoteCount + 1
             
@@ -246,7 +211,7 @@ class DataService {
             }
             
             let bubbleData = bubbleDoc.data()
-            let oldVoteCount = bubbleData["voteCount"] as! Int
+            let oldVoteCount = bubbleData!["voteCount"] as! Int
             
             let newVoteCount = oldVoteCount - 1
             
