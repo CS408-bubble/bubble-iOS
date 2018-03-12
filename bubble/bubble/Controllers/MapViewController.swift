@@ -170,7 +170,7 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
        
         let myuid:String = (Auth.auth().currentUser?.uid)!
         // TODO: Do something with selected bubble using currentBubble
-        var userData: [String:Any] = DataService.instance.getUser(userID: myuid)
+        var _: [String:Any] = DataService.instance.getUser(userID: myuid)
         DataService.instance.getUserBubbles(uid: myuid, success: {(bubbleResult) in
             for bubbler in bubbleResult {
                 print(bubbler.text)

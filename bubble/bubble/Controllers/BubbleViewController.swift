@@ -30,15 +30,31 @@ class BubbleViewController: UIViewController {
         
         bubbleTextField.numberOfLines = 0;
         bubbleTextField.text = currentBubble.text
-        
-        //timeTextField.text = ("\(currentBubble.timestamp)")
+        timeTextField.text = ("\(Date(timeIntervalSince1970: currentBubble.timestamp))")
         
         ownerTextField.text = currentBubble.owner
         // Do any additional setup after loading the view.
     }
 
     @IBAction func upVote(_ sender: Any) {
-        
+        print("init  up")
+        print(currentBubble.uid)
+        DataService.instance.voteBubble(bubble: currentBubble, uid: currentBubble.uid, success: {(bubbleResult) in
+            print("up by one")
+            print("\(bubbleResult)")
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    @IBAction func downVote(_ sender: Any) {
+        print("init  down")
+        print(currentBubble.uid)
+        DataService.instance.unvoteBubble(bubble: currentBubble, uid: currentBubble.uid, success: {(bubbleResult) in
+            print("down by one")
+            print("\(bubbleResult)")
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     @IBAction func closePopUp(_ sender: Any) {
         dismiss(animated: true, completion: nil)
