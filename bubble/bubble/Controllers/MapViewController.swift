@@ -21,6 +21,7 @@ class MapViewController: UIViewController {
     var bubbles = [Bubble]()
     let bubbleSemaphore = DispatchSemaphore(value: 1)
     var currentBubble: Bubble!
+    //var userBubble: Bubble!
     var currentUser: BubbleUser?
 
     override func viewDidLoad() {
@@ -30,7 +31,11 @@ class MapViewController: UIViewController {
         getCurrentUser()
         // Retrieve posts around me with backend function!
     }
-
+    @IBAction func LogOutClick(_ sender: Any) {
+        AuthService.sharedInstance.LogOutClicked()
+        print("am out mann")
+        self.performSegue(withIdentifier: "segueOnSuccessfulLogOut", sender: self)
+    }
     func setupBubbleView() {
         self.createBubbleViewCenterY.constant = view.frame.height / 2 + createBubbleView.frame.height
         createBubbleView.postButton.addTarget(self, action: #selector(postBubble), for: .touchUpInside)
@@ -78,6 +83,7 @@ class MapViewController: UIViewController {
 
         }
     }
+    
 
     // MARK - Bubble Posting
 
@@ -161,10 +167,22 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         let bubbleAnnotation = bubbleAnnotationView.annotation as! BubbleAnnotation
         currentBubble = bubbleAnnotation.bubble
     }
-    
+    //var success: Bubble!
     @objc func pinButtonClicked(_ sender: UIButton) {
+       
+        let myuid:String = (Auth.auth().currentUser?.uid)!
         // TODO: Do something with selected bubble using currentBubble
-        print(currentBubble.text)
+       
+        /*DataService.instance.getUserBubbles(uid: myuid, success: {(bubbleResult) in
+            for bubbler in bubbleResult {
+                
+                print(bubbler.uid)
+            }
+            }) { (error) in
+                print(error.localizedDescription)
+            }*/
+         self.performSegue(withIdentifier: "segueOnBubblePop", sender: self)
+
     }
     
     func placeBubbles() {
@@ -178,6 +196,14 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         
         bubbleSemaphore.signal()
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueOnBubblePop" {
+            if let destination = segue.destination as? BubbleViewController {
+                destination.currentBubble = currentBubble 
+            }
+        }
+    }
+  
     
     func getCurrentUser() {
         guard let uid = Auth.auth().currentUser?.uid else { return }

@@ -55,7 +55,6 @@ class DataService {
                 print("GET USER ERROR: \(error?.localizedDescription)")
                 return
             }
-            
             guard let userDict = snapshot?.data() else { return }
             let user = BubbleUser(userDict: userDict, userID: userID)
             return handler(user)
@@ -139,7 +138,6 @@ class DataService {
                 for bubble in bubbles {
                     bubbleResult.append(Bubble(bubbleData: bubble.data()))
                 }
-                
                 success(bubbleResult)
             }
         }
@@ -160,7 +158,6 @@ class DataService {
                 for bubble in bubbles {
                     bubbleResult.append(Bubble(bubbleData: bubble.data()))
                 }
-                
                 success(bubbleResult)
             }
         }

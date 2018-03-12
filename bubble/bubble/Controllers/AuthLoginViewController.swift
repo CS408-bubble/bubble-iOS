@@ -55,6 +55,7 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
             self.present(alert, animated: true, completion: nil)
             return
         }
+
         AuthService.sharedInstance.signInEmail(email: email, password: password, success: {(true) in
             print("successfull Signed in")
             
@@ -63,9 +64,16 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
             //var myobject: User = User(userDict: [:],userID: (Auth.auth().currentUser?.uid)!)
             
             //DataService.instance.getUser(userID: (Auth.auth().currentUser?.uid)!, handler: myobject)
+<<<<<<< HEAD
+            DataService.instance.getUser(userID: (Auth.auth().currentUser?.uid)!) { (user) in
+             print(user.userID)
+                print("pass retrieve")
+            }
+=======
             //DataService.instance.getUser(userID: (Auth.auth().currentUser?.uid)!)
              print(Auth.auth().currentUser?.uid)
              print("pass retrieve")
+>>>>>>> upstream/sprint
             self.performSegue(withIdentifier: "segueOnSuccessfulLogin", sender: self)
         }) { (error) in
 

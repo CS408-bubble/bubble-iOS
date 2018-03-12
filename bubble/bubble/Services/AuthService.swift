@@ -53,6 +53,16 @@ class AuthService {
         } 
     }
     
+    func LogOutClicked() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            print("am out mann")
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     func signOut(success: @escaping (Bool) -> (Void)) {
         if Auth.auth().currentUser != nil {
             do {
