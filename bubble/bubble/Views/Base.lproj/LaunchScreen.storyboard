@@ -4,11 +4,15 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArialRoundedMTBold.ttf">
+            <string>ArialRoundedMTBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -17,7 +21,32 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="8dt-Nm-pdK">
+                                <rect key="frame" x="137" y="283" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="uAi-aA-kCH"/>
+                                    <constraint firstAttribute="width" constant="100" id="vN3-YK-Rnq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" © bubble 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rm1-Rh-Ntj">
+                                <rect key="frame" x="133" y="649" width="108" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="KOX-ra-RdV"/>
+                                    <constraint firstAttribute="height" constant="18" id="oA4-q3-vFG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.74473947286605835" green="0.87272173166275024" blue="0.99357014894485474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8dt-Nm-pdK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CuH-st-4XH"/>
+                            <constraint firstItem="8dt-Nm-pdK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Egz-CQ-7l3"/>
+                            <constraint firstItem="Rm1-Rh-Ntj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Vd3-IB-xuv"/>
+                            <constraint firstItem="Rm1-Rh-Ntj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="z2K-cP-mkE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -26,4 +55,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bubble" width="922" height="922"/>
+    </resources>
 </document>

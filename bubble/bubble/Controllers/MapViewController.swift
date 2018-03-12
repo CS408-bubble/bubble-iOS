@@ -22,11 +22,13 @@ class MapViewController: UIViewController {
     let bubbleSemaphore = DispatchSemaphore(value: 1)
     var currentBubble: Bubble!
     //var userBubble: Bubble!
+    var currentUser: BubbleUser?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
         setupBubbleView()
+        getCurrentUser()
         // Retrieve posts around me with backend function!
     }
     @IBAction func LogOutClick(_ sender: Any) {
@@ -202,4 +204,11 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         }
     }
   
+    
+    func getCurrentUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        DataService.instance.getUser(userID: uid) { (user) in
+            self.currentUser = user
+        }
+    }
 }

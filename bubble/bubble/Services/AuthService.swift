@@ -22,12 +22,14 @@ class AuthService {
         let email = userData["email"] as! String
         let password = userData["password"] as! String
         userData["password"] = nil
+        userData["profilePictureURL"] = ""
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 user?.delete(completion: nil)
                 failure(error)
             } else if let user = user {
+                userData["uid"] = user.uid
                 DataService.instance.userCollection.document(user.uid).setData(userData, completion: { (error) in
                     if let error = error {
                         user.delete(completion: nil)
@@ -61,6 +63,32 @@ class AuthService {
         }
     }
     
+    func signOut(success: @escaping (Bool) -> (Void)) {
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+            } catch let signOutError as NSError {
+                success(false)
+                print("Error signing out: %@", signOutError)
+            }
+            success(true)
+        }
+    }
+    
+    func deleteAccount(success: @escaping (Bool) -> (Void)) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        DataService.instance.deleteUser(uid: uid)
+        Auth.auth().currentUser?.delete(completion: { (error) in
+            if error != nil {
+                success(false)
+                print("Error deleting user: \(String(describing: error))")
+            } else {
+                success(true)
+            }
+        })
+    }
+    
 
     func deleteUser(user: User, success: @escaping (Bool)->(), failure: @escaping (Error)->()) {
         user.delete { (error) in
@@ -71,6 +99,50 @@ class AuthService {
             }
         }
     }
+    
+    func loginOrRegisterWithFacebook(credential: AuthCredential, success: @escaping (User, [String: Any], Bool) -> (), failure: @escaping (Error) -> ()) {
+        
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"]).start { (request, result, error) in
+            if let error = error {
+                failure(error)
+            } else if let result = result {
+                let userInfo = result as! [String: Any]
+                print(userInfo)
+                Auth.auth().signIn(with: credential) { (user, error) in
+                    if let error = error {
+                        failure(error)
+                    } else if let user = user {
+                        DataService.instance.userCollection.document(user.uid).getDocument(completion: { (userDoc, error) in
+                            if let error = error {
+                                failure(error)
+                            } else if userDoc!.exists {
+                                success(user, userInfo, true)
+                            } else {
+                                success(user, userInfo, false)
+                            }
+                        })
+                        
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    func registerFacebookUser(uid: String, userData: [String: Any], success: @escaping () ->(), failure: @escaping (Error) -> ()) {
+        var userData = userData
+        userData["postCount"] = 0
+        userData["uid"] = uid
+        
+        DataService.instance.userCollection.document(uid).setData(userData, completion: { (error) in
+            if let error = error {
+                failure(error)
+            } else {
+                success()
+            }
+        })
+    }
+    
 /*class AuthService : NSObject, GIDSignInDelegate{
     //class AuthService {
     static var sharedInstance = AuthService()

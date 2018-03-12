@@ -33,4 +33,29 @@ class bubbleUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    
+    func testProfileBio() {
+        let app = XCUIApplication()
+        app.buttons["Profile"].tap()
+        
+        let tablesQuery2 = app.tables
+        let tablesQuery = tablesQuery2
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["settings"]/*[[".cells.buttons[\"settings\"]",".buttons[\"settings\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let textView = tablesQuery2.cells.containing(.staticText, identifier:"Edit Bio").children(matching: .textView).element
+        textView.tap()
+        textView.typeText("test")
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["save"]/*[[".cells.buttons[\"save\"]",".buttons[\"save\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+    }
+    
+    func testProfilePicture() {
+        let app = XCUIApplication()
+        app.buttons["Profile"].tap()
+        
+        let tablesQuery2 = app.tables
+        let tablesQuery = tablesQuery2
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["settings"]/*[[".cells.buttons[\"settings\"]",".buttons[\"settings\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["Edit"]/*[[".cells.buttons[\"Edit\"]",".buttons[\"Edit\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.navigationBars["Photos"].buttons["Cancel"].tap()
+    }
 }

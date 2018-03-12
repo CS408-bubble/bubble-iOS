@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseFirestore
+import FirebaseStorage
 
 class DataService {
     
@@ -20,63 +21,45 @@ class DataService {
     // TODO: Add references for database
     let db = Firestore.firestore()
     let userCollection = Firestore.firestore().collection("user")
-    let userImageCollection = Firestore.firestore().collection("UserImage")
+    private var _REF_PROFILE_PICS = Storage.storage().reference().child("profile-pics")
     
     let bubbleCollection = Firestore.firestore().collection("Bubble")
     let bubbleVoteCollection = Firestore.firestore().collection("BubbleVote")
-    /* private var _REF_USERS = something here
     
-    var REF_USERS: some_type {
-        return _REF_USERS
+    var REF_PROFILE_PICS: StorageReference {
+        return _REF_PROFILE_PICS
     }
-     */
     
-    // TODO: complete following functions: createOrUpdateUser, getUser, getProfilePicture
+    // TODO: complete following functions: createUser, getUser, getProfilePicture
     
     // Adds/updates user's entry in the Firebase database
-    func createOrUpdateUser(uid: String, userData: [String:Any]) {
-        // add user to database
-        // Add a new document with a generated ID
-      var ref: DocumentReference? = nil
-       ref = userCollection.addDocument(data: userData) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
+    func updateUser(uid: String, userData: [String:Any]) {
+        userCollection.document(uid).updateData(userData) { (error) in
+            if error != nil {
+                print("USER UPDATE ERROR: \(error?.localizedDescription)")
             } else {
-                print("Document added with ID: \(ref!.documentID)")
+                print("USER UPDATED!")
             }
         }
     }
+    
+    func deleteUser(uid: String) {
+        userCollection.document(uid).delete()
+    }
+    
+    // Retrives user based on userID/user's key in Firebase
     func getUser(userID: String,  handler: @escaping (_ user: BubbleUser) -> ()) {
         userCollection.document(userID).getDocument { (snapshot, error) in
+            
             if error != nil {
                 print("GET USER ERROR: \(error?.localizedDescription)")
                 return
             }
-                guard let userDict = snapshot?.data() else { return }
-                let user = BubbleUser(userDict: userDict, userID: userID)
-                return handler(user)
+            guard let userDict = snapshot?.data() else { return }
+            let user = BubbleUser(userDict: userDict, userID: userID)
+            return handler(user)
         }
     }
-    /*// Retrives user based on userID/user's key in Firebase
-    func getUser(userID: String)-> [String:Any] {
-        var userData: [String:Any] = [:]
-        // retrieve user from database and send back using handler
-            userCollection.whereField("uid", isEqualTo: userID).getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-
-                    //print("\(document.documentID) => \(document.data())")
-                     userData["name"] = document.data()["name"]
-                     userData["uid"] = document.data()["uid"]
-                     userData["email"] = document.data()["email"]
-                     userData["postCount"] = document.data()["postCount"]
-                }
-            }
-        }
-        return userData
-    }*/
     
     // Gets a user's profile picture from Firebase Storage
     func getProfilePicture(user: BubbleUser, handler: @escaping (_ image: UIImage) -> ()) {
@@ -84,7 +67,34 @@ class DataService {
             return
         }
         
-       // get profile picture and send back using handler
+        let session = URLSession(configuration: .default)
+        
+        //creating a dataTask to get profile picture
+        let getImageFromUrl = session.dataTask(with: url) { (data, response, error) in
+            
+            if error != nil {
+                //displaying the message
+                print("Error downloading image: \(String(describing: error))")
+            } else {
+                guard let _ = response as? HTTPURLResponse else {
+                    print("No response from server")
+                    return
+                }
+                
+                if let imageData = data {
+                    guard let image = UIImage(data: imageData) else {
+                        return
+                    }
+                    
+                    handler(image)
+                    return
+                } else {
+                    print("Image file is corrupted")
+                }
+            }
+        }
+        
+        getImageFromUrl.resume()
     }
 
     // Creates a Bubble given dictionary of information
