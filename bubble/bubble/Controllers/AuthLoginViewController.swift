@@ -61,9 +61,10 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
             //var myobject: User = User(userDict: [:],userID: (Auth.auth().currentUser?.uid)!)
             
             //DataService.instance.getUser(userID: (Auth.auth().currentUser?.uid)!, handler: myobject)
-            DataService.instance.getUser(userID: (Auth.auth().currentUser?.uid)!)
-             print(Auth.auth().currentUser?.uid)
-             print("pass retrieve")
+            DataService.instance.getUser(userID: (Auth.auth().currentUser?.uid)!) { (user) in
+             print(user.userID)
+                print("pass retrieve")
+            }
             self.performSegue(withIdentifier: "segueOnSuccessfulLogin", sender: self)
         }) { (error) in
 

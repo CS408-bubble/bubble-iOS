@@ -164,7 +164,7 @@
                                             <action selector="upVote:" destination="7fz-cd-uTJ" eventType="touchUpInside" id="HCa-eB-WdV"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eso-LU-zTi">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eso-LU-zTi">
                                         <rect key="frame" x="8" y="8" width="145" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="BOd-kY-dQn"/>
@@ -221,11 +221,6 @@
                                     <constraint firstItem="F1C-CA-amq" firstAttribute="top" secondItem="wrZ-pg-MjF" secondAttribute="bottom" constant="26" id="xXJ-Ec-ZqS"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMJ-Y1-38V">
-                                <rect key="frame" x="238" y="196" width="121" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Recent Bubbles"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

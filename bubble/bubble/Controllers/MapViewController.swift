@@ -21,7 +21,7 @@ class MapViewController: UIViewController {
     var bubbles = [Bubble]()
     let bubbleSemaphore = DispatchSemaphore(value: 1)
     var currentBubble: Bubble!
-    
+    //var userBubble: Bubble!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,14 +170,15 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
        
         let myuid:String = (Auth.auth().currentUser?.uid)!
         // TODO: Do something with selected bubble using currentBubble
-        var _: [String:Any] = DataService.instance.getUser(userID: myuid)
-        DataService.instance.getUserBubbles(uid: myuid, success: {(bubbleResult) in
+       
+        /*DataService.instance.getUserBubbles(uid: myuid, success: {(bubbleResult) in
             for bubbler in bubbleResult {
-                print(bubbler.text)
+                
+                print(bubbler.uid)
             }
             }) { (error) in
                 print(error.localizedDescription)
-            }
+            }*/
          self.performSegue(withIdentifier: "segueOnBubblePop", sender: self)
 
     }

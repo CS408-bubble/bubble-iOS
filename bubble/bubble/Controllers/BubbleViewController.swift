@@ -18,6 +18,7 @@ class BubbleViewController: UIViewController {
     @IBOutlet weak var downVoteButton: UIButton!
     
     var currentBubble: Bubble!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,12 +28,18 @@ class BubbleViewController: UIViewController {
         upVoteButton.layer.masksToBounds = true
         downVoteButton.layer.cornerRadius = 20
         downVoteButton.layer.masksToBounds = true
-        
         bubbleTextField.numberOfLines = 0;
         bubbleTextField.text = currentBubble.text
         timeTextField.text = ("\(Date(timeIntervalSince1970: currentBubble.timestamp))")
-        
-        ownerTextField.text = currentBubble.owner
+        /*DataService.instance.getUser(userID: currentBubble.uid) { (user) in
+            if(user != nil){
+                print("getting user sucessful")
+                //print("\(user.firstName)")
+                //self.ownerTextField.text = user.firstName
+            }else{
+                print("getting user unsucessful")
+            }
+        }*/
         // Do any additional setup after loading the view.
     }
 
@@ -63,8 +70,6 @@ class BubbleViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     /*
     // MARK: - Navigation
 

@@ -46,9 +46,18 @@ class DataService {
             }
         }
     }
-    
-    // Retrives user based on userID/user's key in Firebase
-    //func getUser(userID: String,  handler: @escaping (_ user: User) -> ()) {
+    func getUser(userID: String,  handler: @escaping (_ user: BubbleUser) -> ()) {
+        userCollection.document(userID).getDocument { (snapshot, error) in
+            if error != nil {
+                print("GET USER ERROR: \(error?.localizedDescription)")
+                return
+            }
+                guard let userDict = snapshot?.data() else { return }
+                let user = BubbleUser(userDict: userDict, userID: userID)
+                return handler(user)
+        }
+    }
+    /*// Retrives user based on userID/user's key in Firebase
     func getUser(userID: String)-> [String:Any] {
         var userData: [String:Any] = [:]
         // retrieve user from database and send back using handler
@@ -67,7 +76,7 @@ class DataService {
             }
         }
         return userData
-    }
+    }*/
     
     // Gets a user's profile picture from Firebase Storage
     func getProfilePicture(user: BubbleUser, handler: @escaping (_ image: UIImage) -> ()) {
