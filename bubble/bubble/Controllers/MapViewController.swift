@@ -21,12 +21,17 @@ class MapViewController: UIViewController {
     var bubbles = [Bubble]()
     let bubbleSemaphore = DispatchSemaphore(value: 1)
     var currentBubble: Bubble!
+<<<<<<< HEAD
     //var userBubble: Bubble!
+=======
+    var currentUser: BubbleUser?
+>>>>>>> upstream/sprint
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
         setupBubbleView()
+        getCurrentUser()
         // Retrieve posts around me with backend function!
     }
     @IBAction func LogOutClick(_ sender: Any) {
@@ -194,6 +199,7 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         
         bubbleSemaphore.signal()
     }
+<<<<<<< HEAD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueOnBubblePop" {
             if let destination = segue.destination as? BubbleViewController {
@@ -202,4 +208,13 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         }
     }
   
+=======
+    
+    func getCurrentUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        DataService.instance.getUser(userID: uid) { (user) in
+            self.currentUser = user
+        }
+    }
+>>>>>>> upstream/sprint
 }

@@ -19,16 +19,30 @@ import GoogleSignIn
         // Override point for customization after application launch.
         FirebaseApp.configure()
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+<<<<<<< HEAD
         
         if Auth.auth().currentUser != nil {
             let storyboard = UIStoryboard(name: "Map", bundle: nil)
             window?.rootViewController = storyboard.instantiateInitialViewController()
         }
+=======
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+//        if Auth.auth().currentUser != nil {
+//            let storyboard = UIStoryboard(name: "Map", bundle: nil)
+//            window?.rootViewController = storyboard.instantiateInitialViewController()
+//        }
+        
+>>>>>>> upstream/sprint
         return true
      }
 
 
      func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        if url.absoluteString.contains("fb") {
+            let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+            
+            return handled
+        }
             return SDKApplicationDelegate.shared.application(app, open:url, options:options)
      }
  }

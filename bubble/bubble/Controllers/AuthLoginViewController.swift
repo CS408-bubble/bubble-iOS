@@ -20,6 +20,7 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var googleBTN: GIDSignInButton!
+    @IBOutlet weak var fbButton: FBSDKLoginButton!
     
     
     override func viewDidLoad() {
@@ -27,6 +28,8 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
 
+        fbButton.delegate = self
+        fbButton.readPermissions = ["email", "public_profile"]
        //*********** AuthService.sharedInstance.googleSignInDelegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         // Do any additional setup after loading the view.
@@ -57,7 +60,8 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
             print("successfull Signed in")
             
             /*var user = Auth.auth().currentUser;
-                let userDict: [String:Any] = ["firstName": user.profile.givenName, "lastName": user.profile.familyName, "fullName": user.profile.name, "email": user.profile.email]// "provider": AuthCredential.provider*/
+                let userDict: [String:Any] = ["firstName": user.profile.givenName, "lastName": user.profile.familyName, "fullName": user.profile.name, "email": user.profile.email]// "provider": AuthCredential.provider
+            */
             //var myobject: User = User(userDict: [:],userID: (Auth.auth().currentUser?.uid)!)
             
             //DataService.instance.getUser(userID: (Auth.auth().currentUser?.uid)!, handler: myobject)
@@ -72,22 +76,6 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
         }
     }
     
-    @IBAction func onFBLoginBTN(_ sender: Any) {
-       
-        let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [ .publicProfile], viewController: self, completion: { (loginResult) in
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("User cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-    
-                print(accessToken)
-                self.performSegue(withIdentifier: "segueOnSuccessfulLogin", sender: self)
-            }
-        })
-    }
     @IBAction func onGoogleLoginBTN(_ sender: Any) {
         
         
@@ -97,4 +85,44 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
         AuthService.sharedInstance.googleAuth(forVC: self)
     }*/
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier {
+            switch id {
+            case "facebookSegue":
+                let vc = segue.destination as! AuthRegisterViewController
+                vc.userInfo = sender as! [String: Any]
+            default:
+                return
+            }
+        }
+    }
+}
+
+extension AuthLoginViewController: FBSDKLoginButtonDelegate {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        if (result.isCancelled) {
+            return
+        }
+        
+        print(result.description)
+        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        
+        AuthService.sharedInstance.loginOrRegisterWithFacebook(credential: credential, success: { (user, userInfo, exists) -> () in
+            if exists {
+                self.performSegue(withIdentifier: "segueOnSuccessfulLogin", sender: nil)
+            } else {
+                self.performSegue(withIdentifier: "facebookSegue", sender: userInfo)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        
+    }
 }

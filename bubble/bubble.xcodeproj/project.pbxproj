@@ -36,6 +36,14 @@
 		C7B1450B202D065B00C9832F /* CreateBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7B1450A202D065B00C9832F /* CreateBubbleView.xib */; };
 		C7B1450D202D082D00C9832F /* CreateBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B1450C202D082D00C9832F /* CreateBubbleView.swift */; };
 		FA46308E96437898520F4142 /* Pods_bubble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75072140A2121EB551406AAB /* Pods_bubble.framework */; };
+		FC11269B2053820E006BC6A6 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC11269A2053820E006BC6A6 /* Profile.storyboard */; };
+		FC11269D2053841B006BC6A6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11269C2053841B006BC6A6 /* ProfileViewController.swift */; };
+		FC11269F20538428006BC6A6 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11269E20538428006BC6A6 /* ProfileSettingsViewController.swift */; };
+		FC1126A12053865C006BC6A6 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1126A02053865C006BC6A6 /* RoundedView.swift */; };
+		FC1126A320539582006BC6A6 /* BubbleAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1126A220539582006BC6A6 /* BubbleAnnotation.swift */; };
+		FC2EBA002055D7E7007799B7 /* BubbleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2EB9FF2055D7E6007799B7 /* BubbleUser.swift */; };
+		FC2EBA022055FAB9007799B7 /* UserBubblesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2EBA012055FAB9007799B7 /* UserBubblesViewController.swift */; };
+		FC2EBA042055FB58007799B7 /* BubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2EBA032055FB58007799B7 /* BubbleCell.swift */; };
 		FCD6F0BB202CD8C200A658C8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD6F0BA202CD8C200A658C8 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +107,14 @@
 		D4A6848ED670E80D69AEE3A4 /* Pods_bubbleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bubbleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47A4ACECEF2D0546BA3DC45 /* Pods_bubbleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bubbleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA229941A2DA5921E675AF5C /* Pods-bubble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bubble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bubble/Pods-bubble.debug.xcconfig"; sourceTree = "<group>"; };
+		FC11269A2053820E006BC6A6 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		FC11269C2053841B006BC6A6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FC11269E20538428006BC6A6 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		FC1126A02053865C006BC6A6 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		FC1126A220539582006BC6A6 /* BubbleAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleAnnotation.swift; sourceTree = "<group>"; };
+		FC2EB9FF2055D7E6007799B7 /* BubbleUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleUser.swift; sourceTree = "<group>"; };
+		FC2EBA012055FAB9007799B7 /* UserBubblesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBubblesViewController.swift; sourceTree = "<group>"; };
+		FC2EBA032055FB58007799B7 /* BubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleCell.swift; sourceTree = "<group>"; };
 		FCD6F0BA202CD8C200A658C8 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,6 +245,9 @@
 				C7B1450A202D065B00C9832F /* CreateBubbleView.xib */,
 				249C180D20508686009E20A4 /* AR.storyboard */,
 				C7B1450C202D082D00C9832F /* CreateBubbleView.swift */,
+				FC11269A2053820E006BC6A6 /* Profile.storyboard */,
+				FC1126A02053865C006BC6A6 /* RoundedView.swift */,
+				FC2EBA032055FB58007799B7 /* BubbleCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +266,9 @@
 				249C180B2050867B009E20A4 /* ARViewController.swift */,
 				2A5FA2EB20553F1200B49AA8 /* BubbleViewController.swift */,
 				2A28F29C2055C24F0023E007 /* BubbleTBViewController.swift */,
+				FC11269C2053841B006BC6A6 /* ProfileViewController.swift */,
+				FC11269E20538428006BC6A6 /* ProfileSettingsViewController.swift */,
+				FC2EBA012055FAB9007799B7 /* UserBubblesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -390,6 +412,7 @@
 			files = (
 				C7B1450B202D065B00C9832F /* CreateBubbleView.xib in Resources */,
 				249C181020508696009E20A4 /* Map.storyboard in Resources */,
+				FC11269B2053820E006BC6A6 /* Profile.storyboard in Resources */,
 				24E99799202232DE009EF2FF /* (null) in Resources */,
 				24E99796202232DE009EF2FF /* Assets.xcassets in Resources */,
 				249C180E20508686009E20A4 /* AR.storyboard in Resources */,
@@ -605,6 +628,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A5FA2EC20553F1200B49AA8 /* BubbleViewController.swift in Sources */,
+				FC1126A320539582006BC6A6 /* BubbleAnnotation.swift in Sources */,
 				2A615AD52030ACEB00267F76 /* SucessViewController.swift in Sources */,
 				24E99791202232DE009EF2FF /* ViewController.swift in Sources */,
 				2A097B212035661500DB2EAC /* AuthLoginViewController.swift in Sources */,
@@ -612,14 +636,20 @@
 				2A5A79152055BE5D005DD2CE /* BubbleTableViewCell.swift in Sources */,
 				240BBE97202F9D7C00DD1524 /* MapViewController.swift in Sources */,
 				C7B14506202D013500C9832F /* Bubble.swift in Sources */,
+				FC2EBA042055FB58007799B7 /* BubbleCell.swift in Sources */,
 				24E9978F202232DE009EF2FF /* AppDelegate.swift in Sources */,
+				FC11269F20538428006BC6A6 /* ProfileSettingsViewController.swift in Sources */,
 				249C180C2050867C009E20A4 /* ARViewController.swift in Sources */,
 				2A5FA2E82054D35900B49AA8 /* BubbleAnnotation.swift in Sources */,
 				2A28F29D2055C24F0023E007 /* BubbleTBViewController.swift in Sources */,
 				2A701127202FB719002BA176 /* AccountAuthViewController.swift in Sources */,
+				FC1126A12053865C006BC6A6 /* RoundedView.swift in Sources */,
 				C7B1450D202D082D00C9832F /* CreateBubbleView.swift in Sources */,
 				2A18AE612055FC3D00B01050 /* BubbleUser.swift in Sources */,
 				2A097B1F2033A5A800DB2EAC /* AuthService.swift in Sources */,
+				FC2EBA022055FAB9007799B7 /* UserBubblesViewController.swift in Sources */,
+				FC2EBA002055D7E7007799B7 /* BubbleUser.swift in Sources */,
+				FC11269D2053841B006BC6A6 /* ProfileViewController.swift in Sources */,
 				FCD6F0BB202CD8C200A658C8 /* DataService.swift in Sources */,
 				2A9CBD102033A2E000C8BA48 /* AuthRegisterViewController.swift in Sources */,
 			);
