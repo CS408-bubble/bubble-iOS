@@ -126,7 +126,19 @@ class DataService {
   
     // Returns all bubbles from database TODO: Only return nearest bubbles
     func getBubbles(latitude: Double, longitude: Double, success: @escaping ([Bubble]) -> (), failure: @escaping (Error) -> ()) {
-        bubbleCollection.getDocuments { (bubblesSnapshot, error) in
+        let lat = 0.0144927536231884
+        let lon = 0.0181818181818182
+        
+        let lowerLat = latitude - (lat * 1.0)
+        let lowerLon = longitude - (lon * 1.0)
+        
+        let greaterLat = latitude + (lat * 1.0)
+        let greaterLon = longitude + (lon * 1.0)
+        
+        let lesserGeopoint = GeoPoint(latitude: lowerLat, longitude: lowerLon)
+        let greaterGeopoint = GeoPoint(latitude: greaterLat, longitude: greaterLon)
+        
+        bubbleCollection.whereField("location", isGreaterThan: lesserGeopoint).whereField("location", isLessThan: greaterGeopoint).getDocuments { (bubblesSnapshot, error) in
             if let error = error {
                 failure(error)
             } else {
@@ -139,6 +151,7 @@ class DataService {
                 for bubble in bubbles {
                     bubbleResult.append(Bubble(bubbleData: bubble.data()))
                 }
+                
                 success(bubbleResult)
             }
         }
