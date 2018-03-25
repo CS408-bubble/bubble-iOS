@@ -48,7 +48,7 @@ class AuthService {
             if let error = error {
                 failure(error)
             } else if user != nil {
-                return
+                success(true)
             }
         } 
     }
@@ -109,9 +109,7 @@ class AuthService {
                             if let error = error {
                                 failure(error)
                             } else if userDoc!.exists {
-                                success(user, userInfo, true)
                             } else {
-                                success(user, userInfo, false)
                             }
                         })
                         
