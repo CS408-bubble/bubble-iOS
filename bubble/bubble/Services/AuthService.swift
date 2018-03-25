@@ -48,7 +48,7 @@ class AuthService {
             if let error = error {
                 failure(error)
             } else if user != nil {
-                success(true)
+                return
             }
         } 
     }
