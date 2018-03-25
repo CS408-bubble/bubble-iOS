@@ -162,7 +162,7 @@ class DataService {
                 failure(error)
             } else {
                 var bubbleResult: [Bubble] = []
-                success(bubbleResult)
+                
                 guard let bubbles = bubblesSnapshot?.documents else {
                     success(bubbleResult)
                     return
@@ -171,6 +171,7 @@ class DataService {
                 for bubble in bubbles {
                     bubbleResult.append(Bubble(bubbleData: bubble.data()))
                 }
+                success(bubbleResult)
             }
         }
         
