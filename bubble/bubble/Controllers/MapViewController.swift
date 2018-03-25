@@ -180,8 +180,7 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
             }) { (error) in
                 print(error.localizedDescription)
             }*/
-         self.performSegue(withIdentifier: "segueOnBubblePop", sender: self)
-
+        print("this is just to confirm you have tried to expand the bubble")
     }
     
     func placeBubbles() {

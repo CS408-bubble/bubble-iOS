@@ -44,16 +44,12 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
     @IBAction func onLoginBtn(_ sender: Any) {
 
         guard let email = emailField.text, !email.isEmpty else {
-            let alert = UIAlertController(title: "Warning", message: "Enter Email", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            print("Enter email")
             return
         }
         
         guard let password = passwordField.text, !password.isEmpty else {
-            let alert = UIAlertController(title: "Warning", message: "Enter Password", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            print("Enter Password")
             return
         }
 
@@ -65,9 +61,6 @@ class AuthLoginViewController: UIViewController, GIDSignInUIDelegate {
             }
             self.performSegue(withIdentifier: "segueOnSuccessfulLogin", sender: self)
         }) { (error) in
-            let alert = UIAlertController(title: "Warning", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
             print(error.localizedDescription)
         }
     }

@@ -58,16 +58,13 @@ class AuthRegisterViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onContinue(_ sender: Any) {
         
         guard let fullName = fullNameField.text, !fullName.isEmpty else {
-            let alert = UIAlertController(title: "Warning", message: "Enter Fullname", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            print("Fullname")
             return
         }
         
         guard let email = emailField.text, !email.isEmpty else {
-            let alert = UIAlertController(title: "Warning", message: "Enter Email", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+
+            print("email")
             return
         }
         
@@ -80,7 +77,6 @@ class AuthRegisterViewController: UIViewController, UITextFieldDelegate {
                 DispatchQueue.main.async {
                     
                     self.view.isUserInteractionEnabled = true
-                    self.performSegue(withIdentifier: "segueOnSuccessfulActCreated", sender: nil)
                 }
             }) { (error) in
                 DispatchQueue.main.async {
@@ -91,33 +87,18 @@ class AuthRegisterViewController: UIViewController, UITextFieldDelegate {
         } else {
             
             guard let password = passwordField.text, !password.isEmpty else {
-                let alert = UIAlertController(title: "Warning", message: "Enter Password", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+
+                print("Enter Password")
                 return
             }
-            
-            guard let confirmPassword = confirmPasswordField.text, !confirmPassword.isEmpty else {
-                let alert = UIAlertController(title: "Warning", message: "Enter Password", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                return
-            }
-            
-            if(confirmPassword != password){
-                let alert = UIAlertController(title: "Warning", message: "Password Mismatch", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                return
-            }
-            
+
             let newUserData: [String: Any] = [
                 "name" : fullName,
                 "password": password,
                 "email": email]
             
             AuthService.sharedInstance.registerEmail(userData: newUserData, success: { (newUser) in
-                self.performSegue(withIdentifier: "segueOnSuccessfulActCreated", sender: self)
+                print("Account created")
                 self.view.isUserInteractionEnabled = true
             }) { (error) in
                 print(error.localizedDescription)

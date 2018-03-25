@@ -29,7 +29,7 @@ class BubbleViewController: UIViewController {
         downVoteButton.layer.cornerRadius = 20
         downVoteButton.layer.masksToBounds = true
         bubbleTextField.numberOfLines = 0;
-        bubbleTextField.text = currentBubble.text
+        bubbleTextField.text = "Hello My Dear you have opened the bubble"
         timeTextField.text = ("\(Date(timeIntervalSince1970: currentBubble.timestamp))")
         
         print("\("user.name")")
@@ -62,7 +62,7 @@ class BubbleViewController: UIViewController {
         }
     }
     @IBAction func closePopUp(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        print("this mis popup")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
