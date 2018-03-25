@@ -101,7 +101,7 @@ class DataService {
     // Creates a Bubble given dictionary of information
     func createBubble(bubbleData: [String: Any], latitude: Double, longitude: Double, success: @escaping (Bubble) ->(), failure: @escaping (Error) -> ()) {
         var bubbleData = bubbleData
-        let bubblePoint = GeoPoint(latitude: latitude, longitude: longitude)
+        let bubblePoint = GeoPoint(latitude: longitude, longitude: latitude)
         let bubbleDoc = bubbleCollection.document()
         let voteList = bubbleVoteCollection.document(bubbleDoc.documentID)
         
@@ -119,7 +119,6 @@ class DataService {
             if let error = error {
                 failure(error)
             } else if let bubbleData = bubbleData as? [String: Any] {
-                success(Bubble(bubbleData: bubbleData))
             }
         })
     }
@@ -144,14 +143,12 @@ class DataService {
             } else {
                 var bubbleResult: [Bubble] = []
                 guard let bubbles = bubblesSnapshot?.documents else {
-                    success(bubbleResult)
                     return
                 }
                 
                 for bubble in bubbles {
                     bubbleResult.append(Bubble(bubbleData: bubble.data()))
                 }
-                success(bubbleResult)
             }
         }
     }
@@ -163,6 +160,7 @@ class DataService {
                 failure(error)
             } else {
                 var bubbleResult: [Bubble] = []
+                success(bubbleResult)
                 guard let bubbles = bubblesSnapshot?.documents else {
                     success(bubbleResult)
                     return
@@ -171,7 +169,6 @@ class DataService {
                 for bubble in bubbles {
                     bubbleResult.append(Bubble(bubbleData: bubble.data()))
                 }
-                success(bubbleResult)
             }
         }
         
@@ -194,7 +191,7 @@ class DataService {
             let bubbleData = bubbleDoc.data()
             let oldVoteCount = bubbleData!["voteCount"] as! Int
             
-            let newVoteCount = oldVoteCount + 1
+            let newVoteCount = oldVoteCount - 1
             
             transaction.updateData(["voteCount": newVoteCount], forDocument: bubbleRef)
             transaction.updateData([uid: true], forDocument: votingRef)
@@ -225,7 +222,7 @@ class DataService {
             let bubbleData = bubbleDoc.data()
             let oldVoteCount = bubbleData!["voteCount"] as! Int
             
-            let newVoteCount = oldVoteCount - 1
+            let newVoteCount = oldVoteCount + 1
             
             transaction.updateData(["voteCount": newVoteCount], forDocument: bubbleRef)
             transaction.updateData([uid: false], forDocument: votingRef)
