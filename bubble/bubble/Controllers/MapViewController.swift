@@ -65,7 +65,7 @@ class MapViewController: UIViewController {
                 locationManager.startUpdatingLocation()
                 let userLocation = locationManager.location!.coordinate
                 let viewRegion = MKCoordinateRegionMakeWithDistance(userLocation, 1000, 1000)
-                mapView.setRegion(viewRegion, animated: false)
+                //mapView.setRegion(viewRegion, animated: false)
             }
         }
     }
@@ -74,15 +74,13 @@ class MapViewController: UIViewController {
         createBubbleView.textView.text = ""
         self.createBubbleViewCenterY.constant = -100
 
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 1, options: .curveEaseOut, animations: {
             self.createBubbleView.alpha = 1
             self.view.layoutIfNeeded()
         }) { (finished) in
             self.createBubbleView.textView.becomeFirstResponder()
-
         }
     }
-    
 
     // MARK - Bubble Posting
 
@@ -166,6 +164,7 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         let bubbleAnnotation = bubbleAnnotationView.annotation as! BubbleAnnotation
         currentBubble = bubbleAnnotation.bubble
     }
+
     //var success: Bubble!
     @objc func pinButtonClicked(_ sender: UIButton) {
        

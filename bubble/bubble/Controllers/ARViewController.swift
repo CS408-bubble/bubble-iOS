@@ -20,6 +20,7 @@ class ARViewController: UIViewController {
 
     var sceneLocationView = SceneLocationView()
     let locationManager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,8 +33,38 @@ class ARViewController: UIViewController {
         sceneLocationView.run()
         view.insertSubview(sceneLocationView, belowSubview: newBubbleButton)
 
+        populatePostedBubbles()
+
     }
-    
+
+    func populatePostedBubbles() {
+        guard let latitude = locationManager.location?.coordinate.latitude else {
+            return
+        }
+
+        guard let longitude = locationManager.location?.coordinate.longitude else {
+            return
+        }
+
+        DataService.instance.getBubbles(latitude: latitude, longitude: longitude, success: { (bubbles) in
+            for bubble in bubbles {
+                // Create a visual element:
+
+                let coordinate = CLLocationCoordinate2D(latitude: bubble.geopoint.latitude, longitude: bubble.geopoint.longitude)
+                let location = CLLocation(coordinate: coordinate, altitude: (self.locationManager.location?.altitude)! + 10)
+                let image = #imageLiteral(resourceName: "bubbleImage")
+                let imageWithText = self.addTextToImage(text: bubble.text as NSString, inImage: image, atPoint: CGPoint(x: 0, y: 0))
+                let annotationNode = LocationAnnotationNode(location: location, image: imageWithText)
+                print("adding bubble: \(bubble.text)")
+                annotationNode.scaleRelativeToDistance = true
+                self.sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
+
+            }
+        }) { (error) in
+            print("error fetching bubble: \(error)")
+        }
+    }
+
     @IBAction func newBubbleButtonPressed(_ sender: Any) {
         createBubbleView.textView.text = ""
         self.createBubbleViewCenterY.constant = -100
@@ -89,7 +120,40 @@ class ARViewController: UIViewController {
         UIGraphicsEndImageContext()
 
         return newImag!
+    }
 
+    func badAddTextToImage(text: NSString, inImage: UIImage, atPoint:CGPoint) -> UIImage{
+
+        // Setup the font specific variables
+        let textColor = UIColor.white
+        let textFont = UIFont.systemFont(ofSize: 20)
+
+        //Setups up the font attributes that will be later used to dictate how the text should be drawn
+        let textFontAttributes = [
+            NSAttributedStringKey.font: textFont,
+            NSAttributedStringKey.foregroundColor: textColor,
+            ]
+
+        // Create bitmap based graphics context
+        UIGraphicsBeginImageContextWithOptions(inImage.size, false, 0.0)
+
+
+        //Put the image into a rectangle as large as the original image.
+        inImage.draw(in: CGRect(x: 0, y: 0, width: inImage.size.width, height: inImage.size.height))
+        // Our drawing bounds
+        let drawingBounds = CGRect(x: 0.0, y: 0.0, width: inImage.size.width, height: inImage.size.height)
+
+        let textSize = text.size(withAttributes: [NSAttributedStringKey.font:textFont])
+        let textRect = CGRect(x: drawingBounds.size.width/2 - textSize.width/2, y: drawingBounds.size.height/2 - textSize.height/2,
+                              width: textSize.width, height: textSize.height)
+
+        text.draw(in: textRect, withAttributes: textFontAttributes)
+
+        // Get the image from the graphics context
+        let newImag = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImag!
     }
 
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
@@ -122,14 +186,14 @@ class ARViewController: UIViewController {
 
         let location = CLLocation(coordinate: alteredCoordinate, altitude: (locationManager.location?.altitude)! + 25)
         let image = #imageLiteral(resourceName: "bubbleImage")
-        let imageWithText = addTextToImage(text: createBubbleView.textView.text! as NSString, inImage: image, atPoint: CGPoint(x: 0, y: 0))
+        let imageWithText = badAddTextToImage(text: createBubbleView.textView.text! as NSString, inImage: image, atPoint: CGPoint(x: 0, y: 0))
         let annotationNode = LocationAnnotationNode(location: location, image: imageWithText)
 
         annotationNode.scaleRelativeToDistance = true
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
 
         // Dismiss the Post View
-        cancelPost()
+        // cancelPost()
 
         var bubbleData = [String: Any]()
         let doubleLatitude = Double(latitude)
@@ -148,12 +212,15 @@ class ARViewController: UIViewController {
             })
         } else {
             let alert = UIAlertController(title: "Cannot post empty bubble", message: "You must enter at least one character to post this bubble.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            //alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(alert, animated: true, completion: {})
         }
     }
 
     @objc func cancelPost() {
+
+        postBubble()
+
         self.createBubbleViewCenterY.constant = view.frame.height / 2 + createBubbleView.frame.height
         self.createBubbleView.resignFirstResponder()
         self.createBubbleView.endEditing(true)

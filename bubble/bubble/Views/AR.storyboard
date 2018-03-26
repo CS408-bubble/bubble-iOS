@@ -46,15 +46,38 @@
                                     <constraint firstAttribute="height" constant="200" id="jur-Jv-0S9"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1t-vD-L2H">
+                                <rect key="frame" x="20" y="40" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.4238105714" green="0.58958220480000001" blue="0.82358044389999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FzU-co-5vF"/>
+                                    <constraint firstAttribute="width" constant="50" id="x3C-KD-qAj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Map">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="P1b-Ye-V9q" kind="show" id="enu-TB-xcv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yG8-OB-k3d" firstAttribute="bottom" secondItem="VPF-cP-QF6" secondAttribute="bottom" constant="20" id="2LW-mI-XrQ"/>
+                            <constraint firstItem="n1t-vD-L2H" firstAttribute="top" secondItem="yG8-OB-k3d" secondAttribute="top" constant="20" id="H3i-F0-Fcj"/>
                             <constraint firstItem="VPF-cP-QF6" firstAttribute="centerX" secondItem="yG8-OB-k3d" secondAttribute="centerX" id="IJm-Vf-e8W"/>
                             <constraint firstItem="GIe-Nj-dtD" firstAttribute="centerY" secondItem="yG8-OB-k3d" secondAttribute="centerY" id="LuS-8J-Ez7"/>
                             <constraint firstItem="GIe-Nj-dtD" firstAttribute="centerX" secondItem="yG8-OB-k3d" secondAttribute="centerX" id="M9y-33-wrV"/>
                             <constraint firstItem="GIe-Nj-dtD" firstAttribute="width" secondItem="TwK-hu-cWc" secondAttribute="width" multiplier="0.9" id="NsL-Ub-MF2"/>
                             <constraint firstItem="VPF-cP-QF6" firstAttribute="width" secondItem="TwK-hu-cWc" secondAttribute="width" multiplier="0.6" id="gqE-mL-odZ"/>
+                            <constraint firstItem="n1t-vD-L2H" firstAttribute="leading" secondItem="yG8-OB-k3d" secondAttribute="leading" constant="20" id="sUe-kT-8Pb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yG8-OB-k3d"/>
                     </view>
@@ -67,6 +90,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7UL-FV-yJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1027" y="46"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="lrb-XW-Xl1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="P1b-Ye-V9q" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HOK-pP-6pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-210" y="30"/>
         </scene>
     </scenes>
 </document>
