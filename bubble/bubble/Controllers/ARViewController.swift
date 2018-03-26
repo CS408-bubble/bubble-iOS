@@ -184,7 +184,7 @@ class ARViewController: UIViewController {
         let alteredLongitude = longitude + 0.00010
         let alteredCoordinate = CLLocationCoordinate2D(latitude: alteredLatitude, longitude: alteredLongitude)
 
-        let location = CLLocation(coordinate: alteredCoordinate, altitude: (locationManager.location?.altitude)! + 25)
+        let location = CLLocation(coordinate: alteredCoordinate, altitude: (locationManager.location?.altitude)! - 25)
         let image = #imageLiteral(resourceName: "bubbleImage")
         let imageWithText = badAddTextToImage(text: createBubbleView.textView.text! as NSString, inImage: image, atPoint: CGPoint(x: 0, y: 0))
         let annotationNode = LocationAnnotationNode(location: location, image: imageWithText)
