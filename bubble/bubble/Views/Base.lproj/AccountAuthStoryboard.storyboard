@@ -144,7 +144,6 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNX-kt-BQc">
                                 <rect key="frame" x="40" y="140" width="240" height="40"/>
-
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NgP-6h-N7E"/>
                                 </constraints>
@@ -187,7 +186,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjq-9B-RCA">
-                                <rect key="frame" x="223" y="339" width="57" height="15"/>
+                                <rect key="frame" x="223" y="228" width="57" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="zij-VT-46z"/>
                                 </constraints>
@@ -420,8 +419,8 @@
         <image name="bubble-header2" width="1943" height="706"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0sj-IE-RMB"/>
+        <segue reference="axi-Dc-xgQ"/>
         <segue reference="ARK-yX-5ws"/>
-        <segue reference="JvC-Cv-3ev"/>
+        <segue reference="Psh-2h-w95"/>
     </inferredMetricsTieBreakers>
 </document>
