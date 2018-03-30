@@ -187,7 +187,7 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         for bubble in bubbles {
             let bubbleAnnotation = BubbleAnnotation()
             bubbleAnnotation.bubble = bubble
-            bubbleAnnotation.title = bubble.text
+            bubbleAnnotation.title = "this is your bubble"//bubble.text
             bubbleAnnotation.coordinate = CLLocationCoordinate2DMake(bubble.geopoint.latitude, bubble.geopoint.longitude)
             mapView.addAnnotation(bubbleAnnotation)
         }
