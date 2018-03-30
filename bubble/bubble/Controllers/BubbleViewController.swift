@@ -30,7 +30,7 @@ class BubbleViewController: UIViewController {
         downVoteButton.layer.masksToBounds = true
         bubbleTextField.numberOfLines = 0;
         bubbleTextField.text = "Hello My Dear you have opened the bubble"
-        timeTextField.text = ("\(Date(timeIntervalSince1970: currentBubble.timestamp))")
+        timeTextField.text = "03-03-1993 03:18AM"//("\(Date(timeIntervalSince1970: currentBubble.timestamp))")
         
         print("\("user.name")")
         print(currentBubble.uid)

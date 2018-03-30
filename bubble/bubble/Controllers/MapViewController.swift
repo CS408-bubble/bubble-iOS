@@ -179,14 +179,15 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
             }) { (error) in
                 print(error.localizedDescription)
             }*/
-        print("this is just to confirm you have tried to expand the bubble")
+        self.performSegue(withIdentifier: "segueOnBubblePop", sender: self)
+        //print("this is just to confirm you have tried to expand the bubble")
     }
     
     func placeBubbles() {
         for bubble in bubbles {
             let bubbleAnnotation = BubbleAnnotation()
             bubbleAnnotation.bubble = bubble
-            bubbleAnnotation.title = bubble.text
+            bubbleAnnotation.title = "this is your bubble"//bubble.text
             bubbleAnnotation.coordinate = CLLocationCoordinate2DMake(bubble.geopoint.latitude, bubble.geopoint.longitude)
             mapView.addAnnotation(bubbleAnnotation)
         }
